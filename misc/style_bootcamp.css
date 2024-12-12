@@ -1,0 +1,145 @@
+/* Whole document: */
+body{
+  font-family: 'Helvetica Neue', sans-serif;  
+  letter-spacing: -0.1px; 
+  line-height: 1.35; 
+  font-size: 12pt;
+  color: rgb(0, 0, 0);
+  opacity: 0.95;
+  background-color: #dbdbdbc3;  
+  background-image: url("COG_White.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 290px;
+  background-position: 5% 98%;
+  }
+  
+  /* Headers */
+  
+  h1.title {
+    font-size: 26pt;
+    font-weight: 650;
+    color: #ffffff;
+    /* background-image: radial-gradient(#8A8D8F, #ffffff);
+    background-clip: text;
+    -webkit-background-clip: text; */
+    background-color: #9D2235;
+    border-radius: 5px 20px 20px;
+    opacity: 1.0;
+    padding-top: 1em;
+    padding-bottom: .5em;
+    text-align: center;
+    box-shadow: 4px 4px 5px #888;
+    /* border-left: 15px solid #8A8D8F;
+    border-right: 15px solid #8A8D8F; */
+    
+  }
+  
+  h1, .h1, h2, .h2, h3, .h3 {
+      margin-top: 15px;
+  }
+  
+  
+  h1 {
+    font-size: 23pt;
+    font-weight: bold;
+    color: 	 #FFFFFF;
+    background-color: #9D2235;
+    opacity: .90;
+    padding-top: .25em;
+    padding-left: .5em;
+    box-shadow: 4px 4px 5px #888; 
+    border-radius: 10px; 
+  }
+  
+  
+  h2 { 
+    font-size: 20pt;
+    color:  #FFFFFF;  
+    background-color: #686868;
+    opacity: .80;
+    padding-left: .5em;
+    padding-top: .5em;
+    box-shadow: 3px 3px 4px #888;
+    border-radius: 5px; 
+  }
+  
+  h3 { 
+    font-size: 16pt;
+    color: #000000;
+    padding-top:.5em;
+    padding-left: .5em;
+    font-style: italic;
+  }
+
+  h4 { 
+    font-size: 14pt;
+    color: #000000;
+    padding-top:.5em;
+  }
+  
+  
+  /* Code Chunks */
+  pre {
+    max-height: 350px;
+    background-color: #ffffff;
+    overflow-y: auto;
+  }
+  
+  pre[class] {
+    max-height: 250px;
+  }
+  
+  .r code {
+    white-space: pre;
+  }
+
+  code {
+    color: #9D2235;
+    ;
+  }
+  
+  
+  /* LINKS */
+  
+  /* unvisited link */
+  a:link {
+    color: #374AD5;
+    text-decoration: none;
+  }
+  
+  
+  /* visited link */
+  a:visited {
+    color: #4B0082;
+    text-decoration: none;
+  }
+  
+  /* mouse over link */
+  a:hover { 
+    color: #4B0082;
+    background-color: #E4ECE7;
+    text-decoration: none;
+  }
+  
+  /* TOC */
+  
+  div #TOC {
+    float:right;
+    width:20%;
+    font-size: 9.5pt;
+    border: 12.5px solid #9D2235;
+    border-radius: 15px;
+    background: white;
+    padding: .5em;
+    overflow:hidden;
+    overflow-y:inherit;
+    box-shadow: 4px 4px 5px #888;
+}
+  
+.tocify-subheader > .tocify-item {
+    text-indent: inherit;
+    padding-left: 2em;
+    }
+  
+  
