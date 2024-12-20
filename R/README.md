@@ -2,15 +2,14 @@
 # R Tutorial
 08/24/2023  
 
-__**Instructor:**__ Steven Martinez
-__**Content Creator:**__ Billy Mitchell
+__**Content Creators:**__ Steven Martinez & Helen Schmidt
 
 ## Description
-This workshop will review basic coding skills relevant to conducting statistical analyses for an audience that has ***little to no experience in R***. It will build upon the groundwork laid in days 1 and 2 by using the same data that we had organized in Bash and cleaned in Python. Although R is well-suited for data wrangling purposes, we will focus specifically on how to conduct basic statistical tests in R, including Chi Square tests, T-Tests, ANOVAs, and various forms of Regression and how to make sense of this information through reports and visualizations. While a background in statistical theory is *helpful*, the module was designed such that it should not be *necessary* to follow along.
+This workshop will provide an introduction to the programming language commonly referred to as R! 
 
-## Prerequisites
-1. [bash tutorial](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2023/tree/main/bash)
-2. [python tutorial](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2023/tree/main/python)
+R is a popular programming language that many researchers use for organizing data, visualizing data, and carrying out statistical analyses.
+
+By the end of this workshop series, our hope is that you will feel comfortable enough to work independently in R!.
 
 ## To-do before the tutorial
 1. Download R  
@@ -24,20 +23,19 @@ This workshop will review basic coding skills relevant to conducting statistical
 3. Download relevant packages. Following the installation of R and R studio, copy, paste, and run the following code into the R Studio console:
 
 ```
-# Note: If using a Linux, each library may have other libraries that it depends upon that will need to be downloaded manually. 
-# Exactly which libraries these should be made clear in any error messages that appear when attempting to install.   
-install.packages("naniar")  
-install.packages("report")     
-install.packages("skimr")  
-install.packages("stargazer")  
-install.packages("tidyverse")  
+install.packages("tidyverse")
+install.packages("report")
+install.packages("lme4")
+install.packages("ggplot2")
 ```	  
 
 ## Tutorial objectives:
-- Learn R syntax relating to dataframes
-- Get familiar with RStudio and rmarkdown (and more generally notebook style coding)
-- Learn how to complete statistical analysis
+- Become familiar with RStudio and rmarkdown (and more generally notebook style coding)
+- Understand how to set a working directory and navigate file paths
+- Learn how to load and clean data
+- Conduct statistical analyses
 - Learn how to visualize data
 
+
 ## Workshop Materials
-- [Notebook Viewer](https://tu-coding-outreach-group.github.io/intro-to-coding-2023/R/index.html)
+- [Notebook Viewer](https://tu-coding-outreach-group.github.io/intro-to-coding-2025/R/index.html)
