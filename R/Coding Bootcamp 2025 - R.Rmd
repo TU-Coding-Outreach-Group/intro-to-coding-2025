@@ -42,7 +42,7 @@ This workshop will provide an introduction to the programming language commonly 
 
 R is a popular programming language that many researchers use for organizing data, visualizing data, and carrying out statistical analyses.
 
-By the end of this workshop series, my hope is that you will feel comfortable enough to work independently in R!
+By the end of this workshop series, our hope is that you will feel comfortable enough to work independently in R!
 
 
 ```{r Intro Video, echo = FALSE}
@@ -187,10 +187,10 @@ Let's try installing and loading in a few package for practice. Let's install an
 
 ```{r exercise: installing and loading packages - hidden, eval=T, include=F}
 
-install.packages("tidyverse")
-install.packages("report")
-install.packages("lme4")
-install.packages("ggplot2")
+install.packages("tidyverse", repos = "http://cran.us.r-project.org")
+install.packages("report", repos = "http://cran.us.r-project.org")
+install.packages("lme4", repos = "http://cran.us.r-project.org")
+install.packages("ggplot2", repos = "http://cran.us.r-project.org")
 
 library(tidyverse)
 library(report)
@@ -390,7 +390,7 @@ So how do we work with specific rows? How do we work with specific columns? And 
 
 dataframe$column will print out all the rows in that column. Let's print out all the penguin species IDs that exist in the data frame.
 
-```{r}
+```{r, index rows in column}
 
 penguins$species 
 
@@ -400,7 +400,7 @@ What if we want to see a specific row? Let’s say row 2 within the *species* co
 
 The code below will print out the second row in the species column. We can manually confirm this by opening up the penguins data frame and looking at the second row in the species column.
 
-```{r}
+```{r, index specific cell}
 
 penguins$species[2]
 
@@ -411,7 +411,7 @@ However, we can also index the column using it’s relative position. Knowing th
 
 By including the name of the data frame before the bracket notation, we can pull certain rows and columns from that data frame
 
-```{r}
+```{r, indexing elements}
 
 penguins[1,] # print the first row across all 8 columns
 penguins[,2] # print all the rows for column 2
@@ -498,7 +498,7 @@ Let's say we were only interested in examining penguins from the Adelie species 
 
 We can use the **AND** operator to tell R to subset all rows where species is equal to "Adelie" AND island is equal to "Biscoe" and store it in a new data frame called "penguins_adelie_biscoe".
 
-```{r, OR operator}
+```{r, AND operator}
 
 penguins_adelie_biscoe <- penguins %>%
   filter(species == "Adelie" & island == "Biscoe")
@@ -523,8 +523,7 @@ Let's try an exercise where we have to subset data!
   
 ```
 
-```{r subsetting exercise - hidden, eval=T, include=F}
-
+```{r subsetting exercise - hidden, eval=F, include=F}
 penguin_gentoo <- penguins %>%
   filter(species == "Gentoo")
 ```
@@ -540,7 +539,7 @@ Let's go back to our original penguins data frame.
 
 We can use the is.na() function to determine which rows have missing values in the *bill_length_mm* column.
 
-```{r}
+```{r, identify missing values}
 
 is.na(penguins$bill_length_mm)
 
@@ -556,7 +555,7 @@ But how can we remove missing data (i.e., rows that are blank or have an 'NA' in
 
 We can use the drop_na() function from the tidyverse library to create a new data frame called "penguins_complete" that only includes rows with no missing values.
 
-```{r}
+```{r, drop rows with missing values}
 
 penguins_complete <- penguins %>% drop_na()
 
@@ -567,12 +566,9 @@ What if, instead of removing rows that have a missing value in **ANY** column, w
 
 Let's create a new data framed called "penguins_bill_length_complete" that only includes rows with no missing values in the *bill_length_mm* column.
 
-```{r}
+```{r, drop missing values from specific column}
 
 penguins_bill_length_complete <- penguins %>% drop_na(bill_length_mm)
-
-
-test <- penguins %>% drop_na()
 
 ```
 
@@ -590,7 +586,7 @@ It can be helpful to think of it as a digital version of decision-making -— "I
 ## General if-else structure
 Here's an example of what a general if-else expression looks like in R. This is similar to the fork analogy that we described earlier.
 
-```{r eval = FALSE}
+```{r, general if-else statements, eval = FALSE}
 
 if (condition) {
   expression
@@ -611,7 +607,7 @@ The structure for ifelse() statements is as follows: if the value in the *island
 
 We can use the mutate() function from the tidyverse to add the new "hemisphere" column to our penguins data frame.
 
-```{r}
+```{r, ifelse() statement}
 
 # Use mutate() with ifelse() to add a new column called "hemisphere" that reports the whether the island was located on the Eastern or Western hemisphere
 penguins <- penguins %>%
@@ -622,7 +618,7 @@ penguins <- penguins %>%
 
 Here's what our code would look like within the general if-else expression that we show above
 
-```{r eval = FALSE}
+```{r, general if-else structure, eval = FALSE}
 
 #General structure of if statement
 if (penguins$island == "Biscoe") {
@@ -640,9 +636,8 @@ We can also use a for-loop to accomplish the same outcome that we had when using
 A for-loop is one of the main control-flow constructs of the R programming language. It is used to iterate over a collection of objects, such as a vector, a list, a matrix, or a dataframe, and apply the same set of operations on each item of a given data structure. 
 
 
-```{r introduction to For loop, eval = FALSE}
+```{r, for loop, eval = FALSE}
 
-# -- For Loop general expression ---
 for (i in 1:length(penguins$island)) {  
   if (penguins$island[i] == "Biscoe") {
       penguins$hemisphere[i] <- "Eastern"
@@ -693,7 +688,7 @@ Here's the general structure of the merge() function.
 
 **2)** by: The column(s) to merge on when the column name is the same in both data frames
 
-```{r, merge}
+```{r, merge data frames}
 penguins_merged <- merge(penguins, penguins_raw, by=c("penguin_ID", "species", "island", "flipper_length_mm", "body_mass_g", "sex"))
 ```
 
@@ -708,7 +703,7 @@ In this way, R will then be able to match the columns that are NOT shared across
 
 Next we will learn how to pivot data from wide to long, and long to wide. Before we get started with pivoting, let's subset a data frame to make it easier to see how pivoting works.
 
-```{r, susbet for pivot long}
+```{r, susbet data for long pivot}
 
 penguins_length <- penguins_merged %>%
   select(penguin_ID, species, bill_length_mm, flipper_length_mm, culmen_length_mm)
@@ -728,7 +723,7 @@ In order to do many common statistical analyses, data needs to be in **long** fo
 
 The pivot_longer() function from the tidyr package in R can be used to pivot a data frame from a wide format to a long format.
 
-```{r pivot longer, eval=F, include=T}
+```{r, pivot longer, eval=F, include=T}
 
 penguins_long <- penguins_length %>% pivot_longer(
                         cols=c("bill_length_mm", "flipper_length_mm", "culmen_length_mm"), #The names of the columns to pivot
@@ -752,7 +747,7 @@ The pivot_wider() function from the tidyr package in R can be used to pivot a da
 
 Let's work on pivoting the long data frame back to its original wide format!
 
-```{r pivot wider}
+```{r, pivot wider}
 
 #Pivot wider
 penguins_wide <- penguins_long %>% pivot_wider(names_from = measure, #names_from: The column whose values will be used as column names
@@ -776,6 +771,10 @@ By including the "measure" column in the "names_from" column, we are telling R t
 ```{r Pivot Exercise, code="'\n\n\n\n'", results=F}
 
 
+```
+
+
+```{r Pivot Exercise - hidden, eval=F, include=F}
 #1) Subset the following columns from the penguin_merged data frame and store them in a new data frame called "penguin_pivot_exercise": penguin_ID, species, bill_length_mm, bill_depth_mm
 penguin_pivot_exercise <- penguins_merged %>%
   select(penguin_ID, species, bill_length_mm, bill_depth_mm)
@@ -786,7 +785,6 @@ penguin_pivot_exercise_long <- penguin_pivot_exercise %>% pivot_longer(
                         cols=c("bill_length_mm", "bill_depth_mm"), #The names of the columns to pivot
                         names_to = "bill_measure", #The name for the new character column
                         values_to = "length") #The name for the new values column
-
 ```
 
 
@@ -816,7 +814,7 @@ Let's propose a research question and t-test analysis using the penguins_merged 
 
 To get things started, let's do some data cleaning before we carry out the t-test.
 
-```{r penguins_biscoe_dream}
+```{r, organize data for t-test}
 
 #1) Subset the columns we are interested in and get rid of the columns we are not interested in
 penguins_adelie_gentoo <- penguins_merged %>%
@@ -838,7 +836,7 @@ Now let's do the t-test!
 We'll need to use conditional statements again to specify our variables. What we are comparing here are the mean values of flipper length for Adelie and Gentoo penguins As such, we are going to specify we want flipper length when species == "Adelie" and when species == "Gentoo We next have an argument which asks us whether this analysis is within-subjects or between-subjects. This question is between-subjects, since each penguin is either from the Adelie species or the Gentoo species, so we'll mark that as FALSE. Lastly, R is asking us to define our alternative hypothesis, which is a little beyond the scope of this review, so you will have to take my word that “two.sided” is the right call. 
 
 
-```{r}
+```{r, t-test}
 
 model1 <- t.test(x = penguins_adelie_gentoo$flipper_length_mm[penguins_adelie_gentoo$species == "Adelie"],
                 y = penguins_adelie_gentoo$flipper_length_mm[penguins_adelie_gentoo$species == "Gentoo"],
@@ -853,7 +851,7 @@ model1
 
 Let's use the report() function from the report library to help with our interpretation of the t-test results.
 
-```{r report package}
+```{r, report t-test}
 
 report(model1)
 
@@ -885,7 +883,7 @@ Pay close attention to the formatting of the syntax here. It is the standard way
 To get things started, let's do some data cleaning before we carry out the ANOVA.
 
 
-```{r penguins_biscoe_dream}
+```{r, organize data for ANOVA}
 
 #1) Subset the columns we are interested in and remove the columns we are not interested in
 penguins_bill_analysis <- penguins_merged %>%
@@ -897,7 +895,7 @@ penguins_bill_analysis <- penguins_bill_analysis %>% drop_na()
 ```
 
 
-```{r anova model}
+```{r, ANOVA}
 
 model2 <- aov(bill_length_mm ~ species, data = penguins_bill_analysis) #create ANOVA model and store in an object called model2
 
@@ -908,7 +906,7 @@ summary(model2)
 
 
 The report function works equally well on ANOVA objects as well.
-```{r}
+```{r, report ANOVA}
 
 report(model2)
 
@@ -935,7 +933,7 @@ Within the context of the penguins dataset, we could ask a question like whether
 
 Let's organize our data before we run the regressions
 
-```{r penguins_bill_flipper}
+```{r, organize data for linear regression}
 
 #1) Subset the columns we are interested in and remove the columns we are not interested in
 penguins_bill_flipper <- penguins_merged %>%
@@ -952,7 +950,7 @@ Okay now it's time to run our regression!
 You’re going to notice right off the bat that the structure of the syntax here looks awfully similar to what we just did in ANOVA. We start by noting our method with the lm() function (Linear Modeling). We then note our outcome variable, add a tilde (~), note our predictor(s), and finally note our datasource.
 
 
-```{r bivariate linear regression}
+```{r, bivariate linear regression}
 
 m1 <- lm(flipper_length_mm ~ bill_length_mm, data = penguins_bill_flipper) #create bivariate linear regression and store in an object called "m1"
 
@@ -960,7 +958,7 @@ m1 <- lm(flipper_length_mm ~ bill_length_mm, data = penguins_bill_flipper) #crea
 
 Just like ANOVA, we need to use the summary() function to read the data.
 
-```{r summary of bivariate linear regression}
+```{r, summary of bivariate linear regression}
 
 summary(m1) #use summary() function to print summary for m1 bivariate linear model
 
@@ -969,7 +967,7 @@ summary(m1) #use summary() function to print summary for m1 bivariate linear mod
 
 Lastly, we can run the report() function for linear models as well!
 
-```{r report for bivariate linear regression}
+```{r, report bivariate linear regression}
 
 report(m1) #use report() function to print report for m1 bivariate linear model
 
@@ -996,7 +994,7 @@ Using the penguins data, let’s examine if bill length still predicts flipper l
 **ANALYSIS**: Multivariate Linear Regression
 
 
-```{r multivariate linear regression}
+```{r, multivariate linear regression}
 
 m2 <- lm(flipper_length_mm ~ bill_length_mm + sex, data = penguins_bill_flipper) #create multivariate linear regression and store in an object called "m2"
 
@@ -1004,7 +1002,7 @@ m2 <- lm(flipper_length_mm ~ bill_length_mm + sex, data = penguins_bill_flipper)
 
 Just like the bivariate linear regression, we need to use the summary() function to read the data.
 
-```{r summary of multivariate linear regression}
+```{r, summary of multivariate linear regression}
 
 summary(m2) #use summary() function to print summary for m2 multivariate linear model
 
@@ -1013,7 +1011,7 @@ summary(m2) #use summary() function to print summary for m2 multivariate linear 
 
 Lastly, we can run the report() function for linear models as well!
 
-```{r report for multivariate linear regression}
+```{r, report multivariate linear regression}
 
 report(m2) #use report() function to print report for m2 multivariate linear model
 
@@ -1052,7 +1050,7 @@ The summarySE function appropriate when working with between-subjects variables.
 
 You don't have to change anything in this code -- just run it as it is! All this code is doing is authorizing the use of the summarySE() function.
 
-```{r}
+```{r, standard error function}
 
 
 ## Gives count, mean, standard deviation, standard error of the mean, and confidence interval (default 95%).
@@ -1105,7 +1103,7 @@ Next, let's revisit our t-test, where we were interested in whether there were d
 
 Bar plot from t-test with error bars
 
-```{r}
+```{r, barplot}
 
 #penguins_adelie <- subset(penguins, species == "Adelie")
 #penguins_adelie <- subset(penguins_adelie, island == "Biscoe" | island == "Torgersen")
@@ -1124,10 +1122,7 @@ ggplot(model1_df, aes(x = island, y = flipper_length_mm, fill = island)) + #Plot
       geom_bar(position=position_dodge(), stat="identity") + #Use the geom_bar() function to generate a bar plot
     geom_errorbar(aes(ymin=flipper_length_mm-se, ymax=flipper_length_mm+se), #Use the geom_errorbar() function to plot the standard error bars
                   width=.2,                    # Width of the error bars
-                  position=position_dodge(.9)) +
-  geom_signif(comparisons = list(c("Biscoe", "Torgersen")),
-              test = "t.test",
-              map_signif_level=TRUE)
+                  position=position_dodge(.9))
 
 ```
 
