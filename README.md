@@ -19,7 +19,7 @@ Each tutorial will list the necessary prerequisites in their respective README.m
 
 ## Meet Your TAs
 
-| [Helen Schmidt](https://hschmidt12.github.io/) | [Steven Martinez](https://www.adaptivememorylab.com/people) |
+| [Helen Schmidt](https://hschmidt12.github.io/) | [Steven Martinez](https://www.adaptivememorylab.com/people#:~:text=Daemon/Familiar%3A%20Giraffe-,Steven%20Martinez,-Graduate%20Student) |
 | :------------: | :----------:
 | <img src="misc/images/helen-headshot.jpg"  width="200" height="150" /> | <img src="misc/images/steven-headshot.jpg"  width="170" height="150" /> |
 
