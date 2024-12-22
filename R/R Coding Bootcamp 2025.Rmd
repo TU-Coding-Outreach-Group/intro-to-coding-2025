@@ -27,6 +27,7 @@ editor_options:
 ---
 ```{r, echo=FALSE}
 knitr::opts_chunk$set(error = TRUE)
+knitr::opts_chunk$set(root.dir = '/Users/tuh20985/Documents/GitHub/intro-to-coding-2025/data/')
 ```
 
 
@@ -287,9 +288,10 @@ This format of assigning a value to an object, like we did with **Path** and "/U
 
 We'll next use this **Path** object to set our working directory using the setwd() command. The setwd() command tells R where to look for our .csv file.
 
-```{r, set working directory}
+```{r, set working directory, eval=FALSE}
 setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
 ```
+
 
 Amazing! Now that our working directory is set to the correct file path, we can start working with the data!
 
@@ -315,6 +317,7 @@ penguins <- read.csv(file = "penguins.csv") #Load in the penguins CSV file and s
 
   
 ![**A visualization of the Environment Window.**](images/R_Environment.png)  
+<br>
 
 Since we're all using the same dataset, the number of observations and variables should be the same as in the picture above. Here, you can think of observations as "rows" and variables as "columns". If you click on *penguins* in the environment, it will open in a new tab of your *Source Window* (The same window you are likely writing script in) where you can view it. 
 
@@ -508,7 +511,7 @@ If you open up the **penguins_adelie_biscoe** data frame, you can see that all t
 As you can see, leveraging the OR ( **|** ) and AND ( **&** ) operators in conjunction with the filter() function can be especially powerful.
 
 
-## Week 3 Exercise: Subsetting data
+## Exercise: Subsetting data
 
 Let's try an exercise where we have to subset data!
 
