@@ -76,7 +76,7 @@ Before the workshop, we'll need to download R and RStudio. Throughout the worksh
 
 First things first: if you haven't already done so, open R Studio. Then, you're going to want to open a new R Markdown document, by clicking *File > New File > R Markdown...*  
 
-![How to load a new markdown file](Images/New_R_Markdown.png)
+![How to load a new markdown file](images/New_RMarkdown.png)
   
 This should produce a dialogue box where you can enter the name of the script and your name before selecting **OK**.
   
