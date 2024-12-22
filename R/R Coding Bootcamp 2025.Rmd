@@ -71,11 +71,11 @@ Before the workshop, we'll need to download R and RStudio. Throughout the worksh
 
 First things first: if you haven't already done so, open R Studio. Then, you're going to want to open a new R Markdown document, by clicking *File > New File > R Markdown...*  
 
-![How to load a new markdown file](images/New_RMarkdown.png)
+![](images/New_RMarkdown.png)
   
 This should produce a dialogue box where you can enter the name of the script and your name before selecting **OK**.
   
-![](images/RMarkdown_Dialogue_Box.png)  
+![](images/RMarkdown_Dialogue_Box.png){width=40%}
 
 Next, let's clear out all of the default text that appears in a new R Markdown document, which I have highlighted below:
 
@@ -97,7 +97,7 @@ That’s because a typical script will interpret any text as a command, unless t
 ![](images/RMarkdown_blah_blah_blah.png){width=35%}
 
 The output of any given chunk will appear just below that chunk, rather than in the *R Studio Console Window*. By output, we just mean the product, sum, or status of whatever calculation or item you are asking R to compute and show you.   
-![An example of chunk output](images/RMarkdown_Chunk_Output.png)  
+![](images/RMarkdown_Chunk_Output.png)  
 
 
 R Markdown grants us greater control over what we see and when we see it. To demonstrate, let’s start by creating a new chunk in our markdown document and entering what we see in the image above, you can then follow along with the next bit:
