@@ -522,7 +522,7 @@ penguin_chinstrap <- penguins %>%
   filter(species == "Chinstrap")
 ```
 
-[Click for solution]([Click for solution](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2025/R/solutions/sol2.R)
+[Click for solution](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2025/R/solutions/sol2.R)
 
 
 ## Missing data 
