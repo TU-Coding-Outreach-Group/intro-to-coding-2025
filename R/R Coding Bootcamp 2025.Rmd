@@ -75,11 +75,11 @@ First things first: if you haven't already done so, open R Studio. Then, you're 
   
 This should produce a dialogue box where you can enter the name of the script and your name before selecting **OK**.
   
-![What to enter for a new markdown dialogue box](images/RMarkdown_Dialogue_Box.png)  
+![](images/RMarkdown_Dialogue_Box.png)  
 
 Next, let's clear out all of the default text that appears in a new R Markdown document, which I have highlighted below:
 
-![We don't need all this junk](images/RMarkdown_Erase_Junk.png) 
+![](images/RMarkdown_Erase_Junk.png) 
 
 
 ## Using RMarkdown
