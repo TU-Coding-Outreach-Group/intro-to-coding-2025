@@ -6,13 +6,13 @@ This set of tutorials is intended for complete beginners to coding. If you have 
 ## Agenda
 | Date        | Workshop                             | Lead Instructor |
 | :-----------: |:------------------------------------:| :-----------:|
-| 01/30/25    | [R](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2023/tree/main/R) | Steven Martinez |
-| 01/31/25    | [Python](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2023/tree/main/python) | Helen Schmidt |
+| 01/30/25    | [R](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2025/tree/main/R) | Steven Martinez |
+| 01/31/25    | [Python](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2025/tree/main/python) | Helen Schmidt |
 
 
 ## Getting Started
 Each tutorial will list the necessary prerequisites in their respective README.md files, but here is some software we recommend you install before the workshops. 
-- A text editor you're comfortable with ([VSCode is a great text editor](https://code.visualstudio.com/))
+- A text editor you're comfortable with. Visual Studio Code is a great text editor. ([VSCode](https://code.visualstudio.com/))
 - [RStudio](https://www.rstudio.com/products/rstudio/download/#download)
 - Spyder, available through [Anaconda](https://www.anaconda.com/products/individual#Downloads)
 
