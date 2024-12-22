@@ -88,7 +88,7 @@ In a typical coding script, every line must contain code that the language could
 
 With R Markdown, any code that you would like R to interpret belongs in the coding chunk as illustrated below.
 
-![](images/RMarkdown_Insert_Code.png){width=50%}
+![](images/RMarkdown_Insert_Code.png)
 
 If we want to leave notes, we don’t have to “comment it out”. We can just write long-winded narration that can help others understand why we coded what we coded and what that code does. 
 
