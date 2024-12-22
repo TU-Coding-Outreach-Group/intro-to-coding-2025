@@ -289,11 +289,9 @@ We'll next use this **Path** object to set our working directory using the setwd
 
 ```{r, set working directory}
 setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
-penguins <- read.csv(file = "penguins.csv") #Load in the penguins CSV file and store it in a data frame called "penguins"
 ```
 
 Amazing! Now that our working directory is set to the correct file path, we can start working with the data!
-
 
 # Loading Data
 
@@ -311,6 +309,9 @@ In the most basic sense, we can load our penguins.csv data file using the read.c
 
 The ```read.csv()``` command actually loads in the data. If done correctly, we should see our *Environment* populate with a dataframe labeled *penguins*. 
 
+```{r loading in data }
+penguins <- read.csv(file = "penguins.csv") #Load in the penguins CSV file and store it in a data frame called "penguins"
+```
 
   
 ![**A visualization of the Environment Window.**](images/R_Environment.png)  
@@ -321,7 +322,7 @@ We can also view the penguins data frame by using the View() command.
 
 If we want to look at the first few rows of the penguins data frame, we can use the head() command.
 
-```{r eval = FALSE}
+```{r, head and View functions}
 
 head(penguins) #will show you a subset of rows within the Data Frame
 View(penguins) #will open up the full data frame like you would in Excel
