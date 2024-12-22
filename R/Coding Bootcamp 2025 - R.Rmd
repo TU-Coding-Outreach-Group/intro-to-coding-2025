@@ -1142,7 +1142,7 @@ Let's say our objective was to examine whether bill length significantly differs
 
 Here's what a complete pipeline could look like to address this question using the tidyverse() library in R!
 
-```{r}
+```{r, tidy pipeline, eval=FALSE}
 
 #Step 1: Load the R packages you will be working with (this assumes that you've previously installed the R packages).
 library(tidyverse)
