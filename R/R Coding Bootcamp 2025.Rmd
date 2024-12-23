@@ -723,7 +723,7 @@ If we wanted to make a graph to visualize this comparison (bill length vs flippe
 
 The pivot_longer() function from the tidyr package in R can be used to pivot a data frame from a wide format to a long format.
 
-```{r, pivot longer, eval=F, include=T}
+```{r, pivot longer, eval=T, include=T}
 
 penguins_long <- penguins_length %>% pivot_longer(
                         cols=c("bill_length_mm", "flipper_length_mm", "culmen_length_mm"), #The names of the columns to pivot
