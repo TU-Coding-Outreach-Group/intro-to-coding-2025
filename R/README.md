@@ -9,7 +9,7 @@ This workshop will provide an introduction to the programming language commonly 
 
 R is a popular programming language that many researchers use for organizing data, visualizing data, and carrying out statistical analyses.
 
-By the end of this workshop series, our hope is that you will feel comfortable enough to work independently in R!.
+By the end of this workshop series, our hope is that you will feel comfortable enough to work independently in R!
 
 ## To-do before the tutorial
 1. **Download R**
@@ -30,7 +30,7 @@ install.packages("ggplot2")
 ```	  
 
 ## Tutorial objectives:
-- Become familiar with RStudio and rmarkdown (and more generally notebook style coding)
+- Become familiar with RStudio and Rmarkdown (and more generally notebook style coding)
 - Understand how to set a working directory and navigate file paths
 - Learn how to load and clean data
 - Conduct statistical analyses
