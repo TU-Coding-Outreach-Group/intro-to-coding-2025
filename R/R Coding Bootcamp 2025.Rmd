@@ -701,11 +701,11 @@ Next we will learn how to pivot data from wide to long, and long to wide.
 
 Before we get started with pivoting, let's subset a smaller data frame just to make it easier to work with.
 
-Let's say we only wanted to focus on the length of different anatomical regions (i.e., bill, flipper, culmen). We can subset a data frame with the following columns: sample_number, species, island, bill_length_mm, flipper_length_mm, and culmen_length_mm and store these columns in a new data frame called "penguins_length".
+Let's say we only wanted to focus on the length of different anatomical regions (i.e., bill, flipper, culmen). We can subset a data frame with the following columns: sample_number, species, island, bill_length_mm, flipper_length_mm, culmen_length_mm, and sex and store these columns in a new data frame called "penguins_length".
 
 ```{r, susbet data for long pivot}
 penguins_length <- penguins_merged %>%
-  select(sample_number, species, island, bill_length_mm, flipper_length_mm, culmen_length_mm)
+  select(sample_number, species, island, bill_length_mm, flipper_length_mm, culmen_length_mm, sex)
 ```
 
 Perfect! Next let's break down what it means to pivot data.
