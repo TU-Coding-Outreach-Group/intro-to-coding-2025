@@ -41,6 +41,7 @@ By the end of this workshop series, our hope is that you will feel comfortable e
 
 
 ```{r Intro Video, echo = FALSE}
+library(plyr)
 vembedr::embed_url("https://www.youtube.com/watch?v=HluANRwPyNo")
 ```
 [**What people think coding is versus what it actually is**]
@@ -1066,7 +1067,7 @@ summarySE <- function(data=NULL, measurevar, groupvars=NULL, na.rm=FALSE,
     )
 
     # Rename the "mean" column    
-    datac <- rename(datac, c("mean" = measurevar))
+    datac <- plyr::rename(datac, c("mean" = measurevar))
 
     datac$se <- datac$sd / sqrt(datac$N)  # Calculate standard error of the mean
 
