@@ -972,7 +972,7 @@ Using the penguins data, let’s examine if bill length still predicts flipper l
 ```{r, multivariate linear regression}
 
 #Store multivariate linear regression in an object called "m2
-m2 <- lm(flipper_length_mm ~ bill_length_mm + sex, data = penguins_bill_flipper) "
+m2 <- lm(flipper_length_mm ~ bill_length_mm + sex, data = penguins_length) "
 
 ```
 
