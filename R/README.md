@@ -22,6 +22,10 @@ By the end of this workshop series, our hope is that you will feel comfortable e
          Linux: https://download1.rstudio.org/desktop/jammy/amd64/rstudio-2022.07.1-554-amd64.deb   
 3. **Download relevant packages**. Following the installation of R and R studio, copy, paste, and run the following code into the R Studio console:
 
+4. **Download the "intro-to-coding-2025"" folder from the TU-COG Github page (https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2025)** by pressing the green **Code** button and downloading the ZIP folder. This is the folder containing the all the files we will be working with for the purposes of this workshop.
+
+![](images/CodeButton.png)
+
 ```
 install.packages("tidyverse")
 install.packages("report")
