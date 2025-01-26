@@ -14,7 +14,7 @@ This set of tutorials is intended for complete beginners to coding. If you have 
 Each tutorial will list the necessary prerequisites in their respective README.md files, but here is some software we recommend you install before the workshops. 
 - A text editor you're comfortable with. Visual Studio Code is a great text editor. ([VSCode](https://code.visualstudio.com/))
 - [RStudio](https://www.rstudio.com/products/rstudio/download/#download)
-- Spyder, available through [Anaconda](https://www.anaconda.com/products/individual#Downloads)
+- Anaconda Navigator, available to download here: https://www.anaconda.com/products/navigator
 
 
 ## Meet Your TAs
