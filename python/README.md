@@ -1,23 +1,25 @@
 # Coding Outreach Group Bootcamp
 # Python Tutorial
-12/22/2024
+01/31/2025
 
 __**Instructor:**__ Helen Schmidt
 
 __**Content Editor:**__ Helen Schmidt
 
 ## Description
-This workshop will be an introduction to Python. In this tutorial, you will create a Python script using the Spyder software.
+This workshop will be an introduction to Python. In this tutorial, you will create a Python Jupyter script using Visual Studio Code (VS Code) software. 
 
-Similar to the R workshop, this workshop will focus on developing a complete data analysis pipeline that you can use to conduct your own independent research. As part of the pipeline, we will focus on reading in data, cleaning data, conducting statistical analyses, and visualizing data.
+Similar to the R workshop, this workshop will focus on developing a complete data analysis pipeline that you can use as reference when conducting independent research. As part of the pipeline, we will focus on loading data, cleaning and manipulating data, conducting statistical analysis, and visualizing results. 
 
 By the end of this workshop series, our hope is that you will feel comfortable enough to work independently in Python!
 
 ## To-do before the tutorial
-1. **Download Spyder via Anaconda**: https://www.anaconda.com/products/individual#Downloads.
+1. **Download Anaconda Navigator**: https://www.anaconda.com/products/navigator.
+2. **Download Jupyter Notebook via Anaconda**: Once Anaconda Navigator is downloaded, open to the home page. Click "install" under Jupyter Notebook.
+3. **Download Example Data**: Download the `palmer-penguins.csv` dataset.
 
 ## Tutorial objectives:
-- Become familiar with Python and Spyder
+- Become familiar with Python, Jupyter, and VS Code
 - Understand how to set a working directory and navigate file paths
 - Learn how to load and clean data using Python packages
 - Conduct statistical analyses
