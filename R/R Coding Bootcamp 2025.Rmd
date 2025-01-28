@@ -330,23 +330,23 @@ View(penguins) #will open up the full data frame like you would in Excel
 
 Amazing! Now that we can see the penguins dataset, let's get a better idea of what each column represents
 
-**sample_number** columns -- Represents the continuous numbering sequence for each sample where data was collected
+**sample_number** -- Represents the continuous numbering sequence for each sample where data was collected
 
-**species** column -- The three types of penguin species
+**species** -- The three types of penguin species
 
-**island** column -- The three types of island
+**island** -- The three types of island
 
-**bill_length_mm** column -- A continuous number denoting bill length in millimeters
+**bill_length_mm** -- A continuous number denoting bill length in millimeters
 
-**bill_depth_mm** column -- An integer denoting bill depth in millimeters
+**bill_depth_mm** -- An integer denoting bill depth in millimeters
 
-**flipper_length_mm** column -- An integer denoting flipper length in millimeters
+**flipper_length_mm** -- An integer denoting flipper length in millimeters
 
-**body_mass_g** column -- A continuous number denoting body mass in grams
+**body_mass_g** -- A continuous number denoting body mass in grams
 
-**sex** column -- Sex of the penguin
+**sex** -- Sex of the penguin
 
-**year** column -- Year when the study took place
+**year** -- Year when the study took place
 
 
 
