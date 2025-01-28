@@ -59,7 +59,7 @@ Before the workshop, we'll need to download R and RStudio. Throughout the worksh
 
 2. Download **RStudio**, which is the main software that we will be using to work with R. https://posit.co/download/rstudio-desktop/
 
-3. Download the **intro-to-coding-2025** folder from the TU-COG Github page (https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2025) by pressing the green **Code** button and downloading the ZIP folder. This is the folder containing the all the files we will be working with for the purposes of this workshop.
+3. Download the **intro-to-coding-2025 folder** from the TU-COG Github page (https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2025) by pressing the green **Code** button and downloading the ZIP folder. This is the folder containing the all the files that we will be working with for the purposes of this workshop.
 
 4. Open up a new R Markdown document by clicking File > New File > R Markdown. **First time R users will be asked to download packages once they open up an R Markdown file. Click “Yes” to downloading those packages!**
 
@@ -70,13 +70,13 @@ Before the workshop, we'll need to download R and RStudio. Throughout the worksh
 
 ## Opening A New Markdown File
 
-First things first: if you haven't already done so, open R Studio. Then, you're going to want to open a new R Markdown document, by clicking *File > New File > R Markdown...*  
+First things first: if you haven't already done so, open R Studio. Next, you're going to want to open a new R Markdown document by clicking **File > New File > R Markdown...**  
 
 ![](images/New_RMarkdown.png)
   
-This should produce a dialogue box where you can enter the name of the script and your name before selecting **OK**.
+This should produce a dialogue box where you can enter the title of the script and your name before selecting **OK**.
   
-![](images/RMarkdown_Dialogue_Box.png){width=50%}
+![](images/RMarkdown_Dialogue_Box.png){width=40%}
 
 Next, let's clear out all of the default text that appears in a new R Markdown document, which I have highlighted below:
 
@@ -95,13 +95,13 @@ If we want to leave notes, we don’t have to “comment it out”. We can just 
 
 That’s because a typical script will interpret any text as a command, unless the text is otherwise marked by a hashtag (#). An R markdown script only interprets things as code when we tell it to, and we tell it what is code by creating a chunk. Chunks are marked by three backticks (```) followed by a {r} and, on another line, three more backticks.
 
-![](images/RMarkdown_blah_blah_blah.png){width=35%}
+![](images/RMarkdown_blah.png){width=35%}
 
 The output of any given chunk will appear just below that chunk, rather than in the *R Studio Console Window*. By output, we just mean the product, sum, or status of whatever calculation or item you are asking R to compute and show you.   
 ![](images/RMarkdown_Chunk_Output.png)  
 
 
-R Markdown grants us greater control over what we see and when we see it. To demonstrate, let’s start by creating a new chunk in our markdown document and entering what we see in the image above, you can then follow along with the next bit:
+R Markdown grants us greater control over what we see and when we see it. To demonstrate, let’s start by creating a new chunk in our markdown document and entering what we see in the image above:
 
 ```{r, add 2 plus 2}
 
@@ -124,9 +124,9 @@ If we click the cog icon in the same tray, we can access the output options and 
 
 "File paths" is just a fancy way to refer to the folders and subfolders that exist on someone's computer. Understanding how to navigate file paths is really important for being able to access specific files that you want to work with!
 
-Here's an example of a file path: "/Users/tuh20985/Documents/GitHub/intro-to-coding-2025
+Here's an example of a file path: **"/Users/tuh20985/Documents/GitHub/intro-to-coding-2025"**
 
-Here's a visualization of what that file path looks like on a computer:
+And here's a visualization of what that file path looks like on a computer:
 
 ![An example of a file path](images/FilePath_Visualization.png)
 
@@ -143,7 +143,10 @@ Packages in R are synonymous with libraries in other languages. They are more or
 
 
 ## Installing packages
-Every new package is centralized in R’s repository, so even though thousands of people are working on these things independently, you don’t need to leave R to find them. Before they can be used, they must be installed, and you can do that in a pretty way:
+
+Every new package is centralized in R’s repository, so even though thousands of people are working on these things independently, you don’t need to leave R to find them. Before they can be used, they must be installed, and you can do that in a pretty simple way:
+
+Importantly, once you install a package, you don't need to install it again. R can remember which packages have been previously installed.
 
 ```{r install packages, eval = F}
 
@@ -157,7 +160,8 @@ If you need to update a package, you can just re-run the above code. If you’re
 
 
 ## Loading packages
-Now that we have installed a package, that doesn’t mean we can use it yet. We need to tell R “We want access to the functions this package has during this session" by calling it with the library() command.
+
+Now that we have installed a package, that doesn’t mean we can use it yet. We need to tell R “We want access to the functions that this package has during this session" by calling it with the library() command.
 
 ```{r load package via library, eval = F}
 
@@ -171,7 +175,9 @@ You might be wondering why we need to take this extra step. Sometimes different 
 
 If we ever want to explore the functions contained within a package in conjunction with examples, we can either go to the R documentation website or type ‘??PackageName’ into the Console, which will then populate the Help Tab of the Viewer Window with information on the package.
 
-Let's try installing and loading in a few package for practice. Let's install and load the following packages in R: tidyverse, report, lme4, and ggplot2
+Lastly, although you only need to install a package once, you have to load in any packages you want to use in a given R session. In other words, after installing a package, you can skip the ```install.packages()``` step moving forward, but you'll still need to run the ```library()``` step each time you want to use the package in R.
+
+Let's try installing and loading in a few package for practice. Let's install and load the following packages in R: **tidyverse, report, lme4, and ggplot2**
 
 ## Exercise: Installing and Loading Packages
 ```{r exercise: installing and loading packages, code="'\n\n\n\n'", results=F}
@@ -200,11 +206,11 @@ library(ggplot2)
   
 # Palmerpenguins dataset 
 
-For today's workshop, we'll be working with the palmerpenguins dataset. Please make sure you have the 2 CSV files (penguins.csv and penguins_raw.csv) already downloaded!
+For today's workshop, we'll be working with the palmerpenguins dataset. Please make sure you have the 2 CSV files (palmer-penguins.csv and palmer-penguins_raw.csv) already downloaded!
 
 The palmerpenguins data contains two datasets:
 
-1) The **curated** data, which contains size measurements for 344 penguins from three penguin species observed on three islands in the Palmer Archipelago, Antarctica. Although for the purposes of this workshop we've slightly modified the curated data such that there are data from 340 penguins :)
+1) The **curated** data, which contains size measurements for 344 penguins from three penguin species observed on three islands in the Palmer Archipelago, Antarctica. 
 
 2) The **raw** data, which contains additional information about the penguins.
 
@@ -226,7 +232,7 @@ In order to start working with the palmerpenguins datasets, we need to revisit t
 
 A working directory refers to the specific file path on your computer where R (or any programming language) will look for files by default. Like any other language or program, R needs to be told where the file that we’d like to work with is located on our computer. It doesn’t just know automatically. 
 
-Below we'll use the getwd() command to check out where where my current working directory is.
+Below we'll use the getwd() command to find out where where my current working directory is.
 
 ```{r}
 
@@ -234,7 +240,7 @@ getwd() #get your current working directory
 
 ```
 
-As you can see, my working directory is currently set at: "/Users/tuh20985/Documents/GitHub/intro-to-coding-2025"
+As you can see, my working directory is currently set at: **"/Users/tuh20985/Documents/GitHub/intro-to-coding-2025"**
 
 The output probably doesn't make much sense to anyone because this working directory file path is specific to my computer! Each of our working directory file paths will be specific to the computer we are using.
 
@@ -245,7 +251,7 @@ In order to work with the palmerpenguins datasets, we need to tell R where the f
 
 If you're using a Windows computer, it's likely your file path will exist within your "C:/ Drive". 
 
-If you're on a Mac, it's likely your file path will start with a forward slash "/". If you're not sure of your path, R makes it relatively easy to find it.
+If you're on a Mac, it's likely your file path will start with a forward slash "/".
 
 ```{r Setting Working Directory Example, eval=FALSE,include=TRUE, message=FALSE, warning=FALSE, error=FALSE}
 # For Windows
@@ -260,7 +266,7 @@ On my computer, here's where the palmerpenguins data exists:
 
 ![](images/FilePath_Visualization_penguins.png)
 
-In order to work with the penguins.csv file, I'll need to set my working directory to this file path!
+In order to work with the palmer-penguins.csv file, I'll need to set my working directory to this file path!
 
 Let's store this file path in an object called "Path".
 
@@ -276,17 +282,15 @@ Path <- "/Users/tuh20985/Documents/GitHub/intro-to-coding-2025/data/"
 
 ```{r Actually Setting Working Directory, eval=TRUE,include=FALSE, message=FALSE, warning=FALSE, error=FALSE}
 Path <- "/Users/tuh20985/Documents/GitHub/intro-to-coding-2025/data/"
-
 ``` 
 
-This format of assigning a value to an object, like we did with **Path** and "/Users/tuh20985/Documents/GitHub/intro-to-coding-2025/data/" is really important and we'll keep coming back to it throughout this tutorial. 
+This format of assigning a value to an object, like we did with **Path** and **"/Users/tuh20985/Documents/GitHub/intro-to-coding-2025/data/"** is really important and we'll keep coming back to it throughout this tutorial. 
 
-We'll next use this **Path** object to set our working directory using the setwd() command. The setwd() command tells R where to look for our .csv file.
+We'll next use this **Path** object to set our working directory using the setwd() command. The setwd() command tells R where to look for files on our computer.
 
 ```{r, set working directory, eval=FALSE}
 setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
 ```
-
 
 Amazing! Now that our working directory is set to the correct file path, we can start working with the data!
 
@@ -298,13 +302,9 @@ Before we load in the palmerpenguins data, I want to highlight a little terminol
 ## How do I load data into R?
 There are many ways to load data into R and they all depend upon what format the data is in. R can handle data from .csv, .xlsx, .txt, .html, .json, SPSS, Stata, SAS, among others. R also has it’s own data format (.RDA, .Rdata). With the exception of .RDA, .csv is often the cleanest means of reading in data. We won’t cover the other formats, but they are fairly exhaustively covered *<hyperlink/in this tutorial/>*. https://www.datacamp.com/tutorial/r-data-import-tutorial
 
-Before reading in the palmerpenguins CSV file, we need to use the setwd() function to tell R where to look for our CSV file. 
+In the most basic sense, we can load our palmer-penguins.csv data file using the read.csv() function like this:
 
-Let's use the Path object that we created earlier to set our working directory to where the penguins.csv file is located on our computer.
-
-In the most basic sense, we can load our penguins.csv data file using the read.csv() function like this:
-
-The ```read.csv()``` command actually loads in the data. If done correctly, we should see our *Environment* populate with a dataframe labeled *penguins*. 
+The ```read.csv()``` command loads in the data. If done correctly, we should see our R **Environment** populate with a dataframe labeled **penguins**. 
 
 ```{r loading in data }
 penguins <- read.csv(file = "palmer-penguins.csv") #Load in the palmer-penguins CSV file and store it in a data frame called "penguins"
@@ -314,21 +314,19 @@ penguins <- read.csv(file = "palmer-penguins.csv") #Load in the palmer-penguins 
 ![**A visualization of the Environment Window.**](images/R_Environment.png)  
 <br>
 
-Since we're all using the same dataset, the number of observations and variables should be the same as in the picture above. Here, you can think of observations as "rows" and variables as "columns". If you click on *penguins* in the environment, it will open in a new tab of your *Source Window* (The same window you are likely writing script in) where you can view it. 
+Since we're all using the same dataset, the number of observations and variables should be the same as in the picture above. Here, you can think of observations as "rows" and variables as "columns". If you click on **penguins** in the environment, it will open in a new tab of your **Source Window** (The same window you are likely writing script in) where you can view it. 
 
 We can also view the penguins data frame by using the View() command.
 
 If we want to look at the first few rows of the penguins data frame, we can use the head() command.
 
 ```{r, head and View functions}
-
-head(penguins) #will show you a subset of rows within the Data Frame
 View(penguins) #will open up the full data frame like you would in Excel
-
+head(penguins) #will show you a subset of rows within the Data Frame
 ```
 
 
-Amazing! Now that we can see the penguins dataset, let's get a better idea of what each column represents
+Amazing! Now that we can see the penguins dataset, let's get a better idea of what each column in the dataset represents:
 
 **sample_number** -- Represents the continuous numbering sequence for each sample where data was collected
 
@@ -354,7 +352,7 @@ Amazing! Now that we can see the penguins dataset, let's get a better idea of wh
 
 It's super important to recognize the different data types that exist in R. Some of the common data types include: character, factor, double/numeric, integer.
 
-You may have noticed that for some variables, like bill_length_mm, we wrote "continuous number", whereas for other variables, like flipper_length_mm, we wrote "integer". This is because R uses different data types, which we'll talk about more below.
+You may have noticed that for some variables, like bill_length_mm, the column description says "continuous number", whereas for other variables, like flipper_length_mm, the column variable says "integer". This is because R uses different data types, which we'll talk about more below.
 
 Let's use the glimpse() function from the tidyverse library to print out the data type for each column in the penguins data frame.
 
@@ -367,9 +365,6 @@ Put simply,
 
 **dbl** references any number that reflects a continuous number and can include decimals. <br>
 **int** reflects integers, which only include whole numbers and do not include decimals. <br>
-
-We'll also include descriptions of the character and factor data types.
-
 **chr** reflects character, which includes string-based text. <br>
 **factor** reflects factor, which includes texts or numbers, but is typically used to reflect a category (Think "Low", "Medium", "High" for texts or "1", "2", "3", for rankings). <br>
 
@@ -384,7 +379,7 @@ By looking at the penguins data frame, we can see that we aren’t working with 
 
 So how do we work with specific rows? How do we work with specific columns? And how can we check what data is missing? Learning how to access specific elements of a data frame is an extremely important part of learning R.
 
-dataframe$column will print out all the rows in that column. Let's print out all the penguin species IDs that exist in the data frame.
+dataframe$column will print out all the rows in that specific column. Let's print out all the rows in the **species** column.
 
 ```{r, index rows in column}
 
@@ -392,7 +387,7 @@ penguins$species
 
 ```
 
-What if we want to see a specific row? Let’s say row 2 within the *species* column? To reference a specific row in a given column, we can add brackets and the number of that row in the brackets:
+What if we want to see a specific row? Let’s say row 2 within the **species** column? To reference a specific row in a given column, we can add brackets and the number of that row in the brackets.
 
 The code below will print out the second row in the species column. We can manually confirm this by opening up the penguins data frame and looking at the second row in the *species* column.
 
@@ -401,7 +396,6 @@ The code below will print out the second row in the species column. We can manua
 penguins$species[2]
 
 ```
-
 
 However, we can also index the column using it’s relative position. Knowing that the species column is the first column, I can use bracket notation. Bracket notation is super helpful once you understand its structure. It helps me to think of it as [rows, columns]. Any number that appears before the comma will access rows, and any number that appears after the comma will access columns.
 
