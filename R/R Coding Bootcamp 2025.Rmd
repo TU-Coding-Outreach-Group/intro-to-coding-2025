@@ -423,7 +423,7 @@ We know that there are three species of penguins in this dataset: Adelie, Gentoo
 
 Let's say we only wanted to focus on penguins from the Adelie species.
 
-Thankfully, the filter() function from the *tidyverse* library makes subsetting a bit easier. Here, we will use the filter() function to subset the rows that represent penguins from the Adelie speces and store these rows in a new data frame called "penguins_adelie".
+Thankfully, the filter() function from the *tidyverse* library makes subsetting a bit easier. Here, we will use the filter() function to subset the rows that represent penguins from the Adelie species and store these rows in a new data frame called "penguins_adelie".
 
 ```{r, subsetting rows}
 
@@ -505,7 +505,6 @@ As you can see, leveraging the OR ( **|** ) and AND ( **&** ) operators in conju
 Let's try an exercise where we have to subset data!
 
 **1)** Create a new data frame called "penguin_chinstrap" and subset rows that represent penguins from the *Chinstrap* species.
-
 
 ```{r subsetting exercise, code="'\n\n\n\n'", results=F}
 
@@ -1140,7 +1139,7 @@ library(lme4)
 library(ggplot2)
 
 #Step 2: Read the data into R
-penguins <- read.csv(file = "penguins.csv") #Load in the penguins CSV file and store it in a data frame called "penguins"
+penguins <- read.csv(file = "palmer-penguins.csv") #Load in the penguins CSV file and store it in a data frame called "penguins"
 
 #Step 3: Subset the columns you are interested in using the select() function
 penguins_length_pipeline <- penguins %>%
