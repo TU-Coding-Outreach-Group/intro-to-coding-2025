@@ -47,7 +47,7 @@ vembedr::embed_url("https://www.youtube.com/watch?v=HluANRwPyNo")
 [**What people think coding is versus what it actually is**]
 
 
-Are you ready to start learning R?
+# Are you ready to start learning R?
 
 ![](Images/Learning_R.jpeg)
 
@@ -307,7 +307,7 @@ In the most basic sense, we can load our penguins.csv data file using the read.c
 The ```read.csv()``` command actually loads in the data. If done correctly, we should see our *Environment* populate with a dataframe labeled *penguins*. 
 
 ```{r loading in data }
-penguins <- read.csv(file = "penguins.csv") #Load in the penguins CSV file and store it in a data frame called "penguins"
+penguins <- read.csv(file = "palmer-penguins.csv") #Load in the palmer-penguins CSV file and store it in a data frame called "penguins"
 ```
 
   
@@ -665,7 +665,7 @@ Merging data frames allows us to combine different datasets based on common vari
 To illustrate why merging is especially powerful, let's start by reading in the penguins_raw CSV file, which contains additional information about the penguins.
 
 ```{r, read in penguins_raw CSV file}
-penguins_raw <- read.csv(file = "penguins_raw.csv") #Load in the penguins_raw CSV file and store it in a data frame called "penguins_raw"
+penguins_raw <- read.csv(file = "palmer-penguins_raw.csv") #Load in the palmer-penguins_raw CSV file and store it in a data frame called "penguins_raw"
 ```
 
 
