@@ -17,7 +17,7 @@ By the end of this workshop series, our hope is that you will feel comfortable e
 1. **Download Anaconda Navigator**: https://www.anaconda.com/products/navigator.
 2. **Download Jupyter Notebook via Anaconda**: Once Anaconda Navigator is downloaded, open to the home page. Click "install" under Jupyter Notebook.
 3. **Download Example Data**: Download the `palmer-penguins.csv` dataset.  
-4. **Create Virtual Environment in Anaconda**: See [section 3 in workshop notebook](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2025/blob/main/python/index.html#Create-Virtual-Environment-in-Anaconda)
+4. **Create Virtual Environment in Anaconda**: See [section 3 in workshop notebook](https://tu-coding-outreach-group.github.io/intro-to-coding-2025/python/index.html#3_Create_Virtual_Environment_in_Anaconda)
 
 ## Tutorial objectives:
 - Become familiar with Python, Jupyter, and VS Code
@@ -27,5 +27,5 @@ By the end of this workshop series, our hope is that you will feel comfortable e
 - Learn how to visualize data
 
 ## Workshop Materials
-- [Notebook Viewer](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2025/python/index.html)
+- [Notebook Viewer](https://tu-coding-outreach-group.github.io/intro-to-coding-2025/python/index.html)
 
