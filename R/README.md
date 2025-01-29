@@ -12,7 +12,7 @@ R is a popular programming language that many researchers use for organizing dat
 By the end of this workshop series, our hope is that you will feel comfortable enough to work independently in R!
 
 ## To-do before the tutorial
-1. **Download R**
+1. **Download R** <br>
          Windows: https://cran.r-project.org/bin/windows/base/R-4.2.1-win.exe  
          Mac: https://cran.r-project.org/bin/macosx/         
          Linux: https://cran.r-project.org/
