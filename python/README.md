@@ -27,5 +27,5 @@ By the end of this workshop series, our hope is that you will feel comfortable e
 - Learn how to visualize data
 
 ## Workshop Materials
-- [Notebook Viewer](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2025/blob/main/python/index.html)
+- [Notebook Viewer](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2025/python/index.html)
 
