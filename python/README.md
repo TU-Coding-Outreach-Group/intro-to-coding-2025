@@ -4,7 +4,7 @@
 
 __**Instructor:**__ Helen Schmidt
 
-__**Content Editor:**__ Helen Schmidt
+__**Content Creators:**__ Helen Schmidt & Steven Martinez
 
 ## Description
 This workshop will be an introduction to Python. In this tutorial, you will create a Python Jupyter script using Visual Studio Code (VS Code) software. 
