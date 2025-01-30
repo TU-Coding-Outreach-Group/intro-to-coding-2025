@@ -27,7 +27,7 @@ editor_options:
 ---
 ```{r, echo=FALSE}
 knitr::opts_chunk$set(error = TRUE)
-knitr::opts_knit$set(root.dir = '/Users/tuh20985/Documents/GitHub/intro-to-coding-2025/data/')
+knitr::opts_knit$set(root.dir = '/Users/tuh20985/Documents/GitHub/intro-to-coding-2025')
 ```
 
 
@@ -55,18 +55,18 @@ vembedr::embed_url("https://www.youtube.com/watch?v=HluANRwPyNo")
 
 Before the workshop, we'll need to download R and RStudio. Throughout the workshop, we'll be working in RStudio, which will allow us to write code in R. So let's make sure we have both R and RStudio installed before we begin!
 
-1. Download a **R CRAN Mirror**, which basically just hosts the R programming language that we will be using in RStudio. https://cran.r-project.org/
+1. Download an **R CRAN Mirror**, which basically just hosts the R programming language that we will be using in RStudio. https://cran.r-project.org/
 
 2. Download **RStudio**, which is the main software that we will be using to work with R. https://posit.co/download/rstudio-desktop/
 
-3. Download the **intro-to-coding-2025 folder** from the TU-COG Github page (https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2025) by pressing the green **Code** button and downloading the ZIP folder. This is the folder containing the all the files that we will be working with for the purposes of this workshop.
+3. Download the **intro-to-coding-2025 folder** from the TU-COG Github page (https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2025) by pressing the green **Code** button and downloading the ZIP folder. This is the folder containing all the files that we will be working with for the purposes of this workshop.
 
 4. Open up a new R Markdown document by clicking File > New File > R Markdown. **First time R users will be asked to download packages once they open up an R Markdown file. Click “Yes” to downloading those packages!**
 
 ![](images/CodeButton.png)
 
 
-# Intro to RMarkdown & File paths
+# Intro to RMarkdown
 
 ## Opening A New Markdown File
 
@@ -119,21 +119,7 @@ Also of note, the down-facing arrow (second icon in the upper right corner of th
 
 If we click the cog icon in the same tray, we can access the output options and manipulate where output appears and what it looks like, but that's beyond the scope of this review [![Settings Command](images/ChunkSettings.png)].
 
-
-## File Paths
-
-"File paths" is just a fancy way to refer to the folders and subfolders that exist on someone's computer. Understanding how to navigate file paths is really important for being able to access specific files that you want to work with!
-
-Here's an example of a file path: **"/Users/tuh20985/Documents/GitHub/intro-to-coding-2025"**
-
-And here's a visualization of what that file path looks like on a computer:
-
-![An example of a file path](images/FilePath_Visualization.png)
-
-Each part of the file path is a separate folder that we are traversing through.
-
-We'll revisit the concept of file paths when it's time to set our working directory and find the data that we will be working with as part of the workshop.
-
+I know this is a lot of information so don't worry about remembering all of it right now -- I'll talk through some of the buttons we'll be using later on when we start working through our R script!
   
 # R Packages
 
@@ -201,7 +187,7 @@ library(ggplot2)
 
 ```
 
-[Click for solution](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2025/R/solutions/sol1.R)
+[Click for solution](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2025/blob/main/R/solutions/sol1.r)
 
   
 # Palmerpenguins dataset 
@@ -226,15 +212,32 @@ Gorman KB, Williams TD, Fraser WR (2014). Ecological sexual dimorphism and envir
 
 # Working Directories
 
+
+## File Paths
+
+Before we start talking about "working directories", let's quickly unpack what a "file path" is on a computer.
+
+"File paths" is just a fancy way to refer to the folders and subfolders that exist on someone's computer. Understanding how to navigate file paths is really important for being able to access specific files that you want to work with!
+
+Here's an example of a file path: **"/Users/tuh20985/Documents/GitHub/intro-to-coding-2025"**
+
+And here's a visualization of what that file path looks like on a computer:
+
+![An example of a file path](images/FilePath_Visualization.png)
+
+Each part of the file path is a separate folder that we are traversing through.
+
+File paths are especially important for setting your working directory and finding the data that you want to work with, just like we'll need to do for this workshop. 
+
 ## What is a working directory?
 
-In order to start working with the palmerpenguins datasets, we need to revisit the concept of "file paths" that we talked about earlier. We'll use our understanding of file paths to set our "working directory". At this point, some people may be wondering what a "working directory" is.
+In order to start working with the palmerpenguins datasets, we need to revisit the concept of "file paths". We'll use our understanding of file paths to set our "working directory". At this point, some people may be wondering what a "working directory" is.
 
-A working directory refers to the specific file path on your computer where R (or any programming language) will look for files by default. Like any other language or program, R needs to be told where the file that we’d like to work with is located on our computer. It doesn’t just know automatically. 
+A working directory refers to the specific file path on your computer where R (or any programming language) will look for files by default. Like any other language or program, R needs to be told where the file that we’d like to work with is located on our computer. It doesn’t just know automatically where every file is on a person's computer. 
 
-Below we'll use the getwd() command to find out where where my current working directory is.
+Below we'll use the ```getwd()``` command to find out where where my current working directory is.
 
-```{r}
+```{r getwd(), eval=T}
 
 getwd() #get your current working directory
 
@@ -261,7 +264,6 @@ Path <- "C:/"
 Path <- "/"
 ``` 
 
-
 On my computer, here's where the palmerpenguins data exists:
 
 ![](images/FilePath_Visualization_penguins.png)
@@ -269,7 +271,6 @@ On my computer, here's where the palmerpenguins data exists:
 In order to work with the palmer-penguins.csv file, I'll need to set my working directory to this file path!
 
 Let's store this file path in an object called "Path".
-
 ```{r Setting Working Directory, eval=FALSE,include=TRUE, message=FALSE, warning=FALSE, error=FALSE}
 
 # For Windows
@@ -286,18 +287,22 @@ Path <- "/Users/tuh20985/Documents/GitHub/intro-to-coding-2025/data/"
 
 This format of assigning a value to an object, like we did with **Path** and **"/Users/tuh20985/Documents/GitHub/intro-to-coding-2025/data/"** is really important and we'll keep coming back to it throughout this tutorial. 
 
-We'll next use this **Path** object to set our working directory using the setwd() command. The setwd() command tells R where to look for files on our computer.
+We'll next use this **Path** object to set our working directory using the ```setwd()``` command. The ```setwd()``` command tells R where to look for files on our computer.
 
 ```{r, set working directory, eval=FALSE}
 setwd(Path) #use the setwd() function to assign the "Path" object that we created earlier as the working directory
 ```
 
-Amazing! Now that our working directory is set to the correct file path, we can start working with the data!
+```{r change root dir, echo=FALSE}
+knitr::opts_knit$set(root.dir = '/Users/tuh20985/Documents/GitHub/intro-to-coding-2025/data')
+```
+
+Amazing! Now that our working directory is set to the correct file path, we can start load in the palmer-penguins data!
 
 # Loading Data
 
 ## What is a "data frame"?
-Before we load in the palmerpenguins data, I want to highlight a little terminology. The data that R works with is always contained within what we call a ‘dataframe’. A dataframe represents the same thing that a spreadsheet represents in Excel. It contains many cells that are situated into columns (which have names) and rows (which may or may not have names). 
+Before we load in the palmer-penguins data, I want to highlight a little terminology. The data that R works with is always contained within what we call a ‘dataframe’. A dataframe represents the same thing that a spreadsheet represents in Excel. It contains many cells that are situated into columns (which have names) and rows (which may or may not have names). 
 
 ## How do I load data into R?
 There are many ways to load data into R and they all depend upon what format the data is in. R can handle data from .csv, .xlsx, .txt, .html, .json, SPSS, Stata, SAS, among others. R also has it’s own data format (.RDA, .Rdata). With the exception of .RDA, .csv is often the cleanest means of reading in data. We won’t cover the other formats, but they are fairly exhaustively covered *<hyperlink/in this tutorial/>*. https://www.datacamp.com/tutorial/r-data-import-tutorial
@@ -346,22 +351,19 @@ Amazing! Now that we can see the penguins dataset, let's get a better idea of wh
 
 **year** -- Year when the study took place
 
-
-
 ## Data types in R
 
 It's super important to recognize the different data types that exist in R. Some of the common data types include: character, factor, double/numeric, integer.
 
-You may have noticed that for some variables, like bill_length_mm, the column description says "continuous number", whereas for other variables, like flipper_length_mm, the column variable says "integer". This is because R uses different data types, which we'll talk about more below.
+You may have noticed that for some variables, like **bill_length_mm**, the column description says "continuous number", whereas for other variables, like **flipper_length_mm**, the column variable says "integer". This is because R uses different data types, which we'll talk about more below.
 
-Let's use the glimpse() function from the tidyverse library to print out the data type for each column in the penguins data frame.
+Let's use the ```glimpse()``` command from the tidyverse library to print out the data type for each column in the penguins data frame.
 
 ```{r, use glimpse}
 glimpse(penguins)
 ```
 
-
-Put simply, 
+Here's a quick glossary for the common data types that appear in R:
 
 **dbl** references any number that reflects a continuous number and can include decimals. <br>
 **int** reflects integers, which only include whole numbers and do not include decimals. <br>
@@ -369,7 +371,6 @@ Put simply,
 **factor** reflects factor, which includes texts or numbers, but is typically used to reflect a category (Think "Low", "Medium", "High" for texts or "1", "2", "3", for rankings). <br>
 
 Now that we've got a better understanding of what data can look like in R, let's start working with the data.
-
 
 # Subsetting data
 
@@ -409,7 +410,7 @@ penguins[1,2] # print the first row in column 2
 
 ```
 
-Now that we know how to access rows and columns, let's move onto subsetting! 
+Now that we know how to access rows and columns, let's talk about subsetting! 
 
 ## Introduction to Subsetting
 
@@ -423,7 +424,7 @@ We know that there are three species of penguins in this dataset: Adelie, Gentoo
 
 Let's say we only wanted to focus on penguins from the Adelie species.
 
-Thankfully, the filter() function from the *tidyverse* library makes subsetting a bit easier. Here, we will use the filter() function to subset the rows that represent penguins from the Adelie species and store these rows in a new data frame called "penguins_adelie".
+Thankfully, the filter() function from the **tidyverse** library makes subsetting a bit easier. Here, we will use the ```filter()``` function to subset the rows that represent penguins from the Adelie species and store these rows in a new data frame called "penguins_adelie".
 
 ```{r, subsetting rows}
 
@@ -432,13 +433,13 @@ penguins_adelie <- penguins %>%
 
 ```
 
-If you open up the penguins_adelie dataframe using View(penguins_adelie) or manually clicking on the new data object in the R environment window, you should see that all the rows in the **species** column of this data frame reflect the **Adelie** species.
+If you open up the penguins_adelie dataframe using ```View(penguins_adelie)``` or manually clicking on the new data object in the R Environment window, you should see that all the rows in the **species** column of this data frame reflect the **Adelie** species.
  
 Let's break down 2 operators here that are particularly important.
 
 *%>%* refers to piping, which lets you pass the result of one function directly as the input to the next function. Here, all we are doing is feeding in the penguins data frame into the filter() function.
 
-Notice the two equals signs (*==*) in this part of the code: filter(species == "Adelie")
+Notice the two equals signs (*==*) in this part of the code: ```filter(species == "Adelie")```
 
 When two value operators (=, >, <, !) are placed next to each other in R, and many other languages, we aren’t assigning a value to an object; we are comparing the values between two different objects. In this instance, using two equals signs, if the two values are equal, it would produce a TRUE value; if not, then a FALSE. This variable which can only take the value of either TRUE or FALSE is called a boolean. When we tell R to compare the value on the right with this specific column, what it is mechanically doing is iterating through each row within this column, comparing the column value, and determining whether the condition is TRUE or FALSE.
 
@@ -451,7 +452,7 @@ Let's say we were only interested in examining bill length, and not as intereste
 
 We can use the select() function from the tidyverse library to keep the sample_number, species, island, and bill_length_mm columns, while also removing the columns we are not interested in (bill_depth_mm, flipper_length_mm, body_mass_g, sex, and year).
 
-Here, we will use the select() function to keep the columns of interest (sample_number, species, island, bill_length_mm) in a new data frame called "penguins_bill_length".
+Here, we will use the ```select()``` function to assign the columns of interest (sample_number, species, island, bill_length_mm) into a new data frame called "penguins_bill_length".
 
 ```{r, subsetting columns}
 
@@ -460,12 +461,12 @@ penguins_bill_length <- penguins %>%
 
 ```
 
-If you open up the penguins_bill_length dataframe using View(penguins_bill_length) or manually clicking on penguins_bill_length in the R environment window, you should see that only the columns we wanted to keep (sample_number, species, island, bill_length_mm).
+If you open up the penguins_bill_length dataframe using ```View(penguins_bill_length)``` or manually clicking on penguins_bill_length in the R Environment window, you should see that only the columns we wanted to keep (sample_number, species, island, bill_length_mm).
 
 
 ## Subsetting based on multiple conditions
 
-What if, rather than subsetting based on one condition (i.e., rows that represent penguins from the Adelie species), we wanted to subset based on multiple conditions? 
+What if, rather than subsetting based on one condition (i.e., subset all rows that represent penguins from the Adelie species), we wanted to subset based on multiple conditions? 
 
 We can take advantage of the OR ( **|** ) operator using the filter() function.
 
@@ -484,9 +485,9 @@ If you open up the **penguins_adelie_gentoo** data frame, you can see that all t
 
 We can also take advantage of the AND ( **&** ) operator using the filter() function.
 
-Let's say we were only interested in examining penguins from the Adelie species and that lived on Biscoe island.
+Let's say we were only interested in examining penguins from the Adelie species AND penguins that lived on Biscoe island.
 
-We can use the **AND** operator to tell R to subset all rows where species is equal to "Adelie" AND island is equal to "Biscoe" and store it in a new data frame called "penguins_adelie_biscoe".
+We can use the **AND** operator to tell R to subset all rows in the species column that are equal to "Adelie" AND all rows in the island column that are equal to "Biscoe" and store these rows in a new data frame called "penguins_adelie_biscoe".
 
 ```{r, AND operator}
 
@@ -497,14 +498,14 @@ penguins_adelie_biscoe <- penguins %>%
 
 If you open up the **penguins_adelie_biscoe** data frame, you can see that all the rows in the **species** column represent **Adelie** and all the rows in the **island** column represent **Biscoe**. 
 
-As you can see, leveraging the OR ( **|** ) and AND ( **&** ) operators in conjunction with the filter() function can be especially powerful.
+As you can see, leveraging the OR ( **|** ) and AND ( **&** ) operators in conjunction with the ```filter()`` function can be especially powerful.
 
 
 ## Exercise: Subsetting data
 
 Let's try an exercise where we have to subset data!
 
-**1)** Create a new data frame called "penguin_chinstrap" and subset rows that represent penguins from the *Chinstrap* species.
+**1)** Create a new data frame called "penguin_chinstrap" and subset all rows in the species column that represent penguins from the *Chinstrap* species.
 
 ```{r subsetting exercise, code="'\n\n\n\n'", results=F}
 
@@ -516,16 +517,16 @@ penguin_chinstrap <- penguins %>%
   filter(species == "Chinstrap")
 ```
 
-[Click for solution](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2025/R/solutions/sol2.R)
+[Click for solution](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2025/blob/main/R/solutions/sol2.r)
 
 
 ## Missing data 
 
 What if we wanted to see which rows had missing values (e.g., NA) or not? In other words, what if some penguins were missing information about their bill length?
 
-Let's go back to our original penguins data frame.
+Let's go back to our original "penguins" data frame.
 
-We can use the is.na() function to determine which rows have missing values in the *bill_length_mm* column.
+We can use the ```is.na()``` function to determine which rows have missing values in the *bill_length_mm* column.
 
 ```{r, identify missing values}
 
@@ -533,7 +534,7 @@ is.na(penguins$bill_length_mm)
 
 ```
 
-This will produce an array of TRUEs and FALSEs of the same length as the rows in the dataframe, because each TRUE and FALSE is telling us whether each row in that column meets the condition we defined. 
+This will produce an array of TRUEs and FALSEs of the same length as the rows in the dataframe, because each TRUE and FALSE is telling us whether each row value in that column meets the condition we defined. 
 
 For example, we see that the first output is FALSE, which means that the first row in the **bill_length_mm** column does NOT have a missing value. We can confirm this by opening up the penguins data frame and going to the first row in the **bill_length_mm** column and seeing that it is not empty.
 
@@ -541,7 +542,7 @@ However, we see that the 4th output is TRUE, which means that the fourth row in 
 
 But how can we remove missing data (i.e., rows that are blank or have an 'NA' in it) from a data frame?
 
-We can use the drop_na() function from the tidyverse library to create a new data frame called "penguins_complete" that only includes rows with no missing values.
+We can use the drop_na() function from the tidyverse library to create a new data frame called "penguins_complete" that only includes rows with no missing values in any columns.
 
 ```{r, drop rows with missing values}
 
@@ -550,7 +551,7 @@ penguins_complete <- penguins %>% drop_na()
 ```
 
 
-What if, instead of removing rows that have a missing value in **ANY** column, we wanted to remove any rows that have a missing value in **ONE** column? We can again use the drop_na() function and specify the specific column that we want to remove rows with missing values from.
+What if, instead of removing rows that have a missing value in **ANY** column, we wanted to remove any rows that have a missing value in **ONE** specific column? We can again use the drop_na() function and specify the specific column that we want to remove rows with missing values from.
 
 Let's create a new data framed called **"penguins_bill_length_complete"** that only includes rows with no missing values in the **bill_length_mm** column.
 
@@ -560,19 +561,19 @@ penguins_bill_length_complete <- penguins %>% drop_na(bill_length_mm)
 
 ```
 
-As you can see, the **penguins_bill_length_complete** data frame only includes rows that do not have a missing value in the *bill_length_mm* column. 
+As you can see, the **penguins_bill_length_complete** data frame only includes rows that do not have a missing value in the *bill_length_mm* column, but still have missing values in other columns (e.g., sex)
 
 
 # If-else statements in R
 
 An if-else statement is a powerful control flow tool that allows a computer to make decisions and execute different code paths based on specific conditions.
 
-It works kind of like a fork in the road: if a certain condition is true, the program follows one path of code; if the condition is false, it follows an alternative code path 
+It works kind of like a fork in the road: if a certain condition is true, the program follows one path of code; if the condition is false, it follows an alternative code path.
 
 It can be helpful to think of it as a digital version of decision-making -— "If it's raining, I'll take an umbrella; else, I'll leave without one.
 
 ## General if-else structure
-Here's an example of what a general if-else expression looks like in R. This is similar to the fork analogy that we described earlier.
+Here's an example of what a general if-else expression looks like in R. This is similar to the fork/umbrella analogies that we discussed earlier.
 
 ```{r, general if-else statements, eval = FALSE}
 
@@ -584,16 +585,15 @@ if (condition) {
 
 ```
 
-
-We can map this structure onto R's ifelse() function, which makes writing if-else statements a bit easier.
+We can map this structure onto R's ```ifelse()``` function, which makes writing if-else statements a bit easier.
 
 Let's use an if-else statement to create a new column that represents whether an island existed in the Eastern or Western hemisphere of the world.
 
 Let's say that the Biscoe island existed in the Eastern hemisphere, and the Dream and Torgersen islands existed in the Western hemisphere.
 
-The structure for ifelse() statements is as follows: if the value in the **island** column has a cell that is equal to "Biscoe", R will insert a value of "Eastern" in the new **hemisphere** column for that cell, else, insert a value of "Western". 
+The structure for ifelse() statements is as follows: if the value in the **island** column has a cell that is equal to "Biscoe", R will insert a value of "Eastern" in the new **hemisphere** column for that corresponding cell, else, insert a value of "Western". 
 
-We can use the mutate() function from the tidyverse to add the new "hemisphere" column to our penguins data frame.
+We can use the ```mutate()``` function from the tidyverse to add the new "hemisphere" column to our penguins data frame.
 
 ```{r, ifelse() statement}
 
@@ -603,8 +603,7 @@ penguins <- penguins %>%
 
 ```
 
-
-Here's what our code would look like within the general if-else expression that we show above
+Here's what our code would look like within the general if-else expression that we showed above.
 
 ```{r, general if-else structure, eval = FALSE}
 
@@ -619,18 +618,19 @@ if (penguins$island == "Biscoe") {
 
 
 ## For-loop with an if-else statement
-We can also use a for-loop to accomplish the same outcome that we had when using the mutate() function with ifelse() function.
+We can also use a for-loop to accomplish the same outcome that we had when using the ```ifelse()``` function.
 
 A for-loop is one of the main control-flow constructs of the R programming language. It is used to iterate over a collection of objects, such as a vector, a list, a matrix, or a dataframe, and apply the same set of operations on each item of a given data structure. 
 
+For illustrative purposes, rather than overwriting the "hemisphere" column, let's make a new column called "hemisphere_loop"
 
 ```{r, for loop, eval = FALSE}
 
 for (i in 1:length(penguins$island)) {  
   if (penguins$island[i] == "Biscoe") {
-      penguins$hemisphere[i] <- "Eastern"
+      penguins$hemisphere_loop[i] <- "Eastern"
   } else {
-      penguins$hemisphere[i] <- "Western"
+      penguins$hemisphere_loop[i] <- "Western"
   }
 }
 
@@ -643,38 +643,36 @@ Lets break this for-loop code down in some more detail.
 
 **2)** if (penguins$island[i] == "Biscoe") { --- This if statement is saying: if the value of i in the specific iteration of the island row is equal to "Biscoe". Think about it as "if the *first* cell in the island row is equal to "Biscoe", then if the *second* cell in the island row is equal to "Biscoe", then if the *third* cell in the island row is equal to "Biscoe", and so on..
 
-**3)** penguins$hemisphere[i] <- "Eastern" --- input a value of "Eastern" into the corresponding cell of the new "hemisphere" column.
+**3)** penguins$hemisphere_loop[i] <- "Eastern" --- input a value of "Eastern" into the corresponding cell of the new "hemisphere_loop" column.
 
 **4)** } else { --- the initiation of the else condition
 
-**5)** penguins$hemisphere[i] <- "Western" -- input a value of "Western" into the corresponding cell of the new "hemisphere" column
-
+**5)** penguins$hemisphere_loop[i] <- "Western" -- input a value of "Western" into the corresponding cell of the new "hemisphere_loop" column
 
 
 # Merging data
 
 Merging data frames allows us to combine different datasets based on common variables. In other words, merging data together allows us to combine information from multiple sources into a single, comprehensive dataset.
 
-To illustrate why merging is especially powerful, let's start by reading in the penguins_raw CSV file, which contains additional information about the penguins.
+To illustrate why merging is especially powerful, let's start by reading in the **palmer-penguins_raw** CSV file, which contains additional information about the penguins.
 
 ```{r, read in penguins_raw CSV file}
 penguins_raw <- read.csv(file = "palmer-penguins_raw.csv") #Load in the palmer-penguins_raw CSV file and store it in a data frame called "penguins_raw"
 ```
 
-
-In the original penguins dataset that we've been working with, we can examine bill length (bill_length_mm) and flipper length (flipper_length_mm), but let's say we were really interested in examining culmen (the ridge along the top part of a penguin's bill) length. As we can see, the original penguins dataset does not have this information, but the penguins raw dataset does!
+In the original penguins dataset that we've been working with, we can examine bill length (bill_length_mm) and flipper length (flipper_length_mm), but let's say we were really interested in examining culmen (the ridge along the top part of a penguin's bill) length. As we can see, the original penguins dataset does not have this information, but the palmer-penguins raw dataset does!
 
 ![](images/palmerpenguins_culmen_length.png){width=45%}
 
 We can combine these two data frames into one data frame, so that we have all the information in one place, and so that we can examine culmen length.
 
-Let's use the merge() function to merge the original penguins data frame and the penguins raw data frame into a new data frame called "penguins_merged".
+Let's use the ```merge()``` function to merge the original penguins data frame and the penguins_raw data frame into a new data frame called "penguins_merged".
 
 Here's the general structure of the merge() function.
 
-**1)** x and y: The two data frames you want to merge
+**1)** x and y: The two data frames you want to merge.
 
-**2)** by: The column(s) to merge on when the column name is the same in both data frames
+**2)** by: The column(s) to merge on when the column name is the same in both data frames.
 
 ```{r, merge data frames}
 
@@ -682,11 +680,12 @@ penguins_merged <- merge(penguins, penguins_raw, by=c("sample_number", "species"
 
 ```
 
-In our code, *x* and *y* represent the data frames we want to merge. All of the columns listed in the *by=c* expression represent the columns that are shared across both data frames (i.e., species, bill_length_mm, flipper_length_mm, body_mass_g, sex), so that R knows which columns we want to match across.
+In our code, **x** and **y** represent the data frames we want to merge. All of the columns listed in the **by=c** expression represent the columns that are shared across both data frames (i.e., species, bill_length_mm, flipper_length_mm, body_mass_g, sex), so that R knows which columns we want to match across.
 
 In this way, R will then be able to match the columns that are NOT shared across the two data frames (i.e., bill_length_mm, bill_depth_mm, year, stage, clutch_competition, date_eg, culmen_length_mm, culmen_depth_mm, delta_15_n, delta_13_c, comments).
 
 Now we have all the information we need in one place!
+
 
 # Pivoting data from wide to long and long to wide
 
@@ -706,15 +705,15 @@ Perfect! Next let's break down what it means to pivot data.
 ## Pivot a data frame from wide to long
 When data exists in a "wide" format, that means that each individual only has 1 row.
 
-When data exists in a "long" format, that means that each individual has more than 1 row. 
+When data exists in a "long" format, that means that each individual has more than 1 row (i.e., repeated-measures). 
 
-For the purposes of understanding how to pivot data frames, we will be using the *penguins_length* data frame that we just created.
+For the purposes of understanding how to pivot data frames, we will be using the **penguins_length** data frame that we just created.
 
 In order to do many common statistical analyses, data needs to be in **long** format. For example, let's say we wanted to show how bill, flipper, and culmen length differ across penguin species. 
 
-If we wanted to make a graph to visualize this comparison (bill length vs flipper length vs culmen length), we could use the **species** column as our x-variable, but what would our Y variable be? There are 3 columns (1 for bill_length_mm, 1 for flipper_length_mm, and 1 for culmen_length_mm), but there is only 1 Y-variable. So as the data currently stands, we could not create a graph of these comparisons! We must pivot.
+If we wanted to make a graph to visualize this comparison (bill length vs flipper length vs culmen length), we could use the **species** column as our x-variable, but what would our Y variable be? There are 3 columns (1 for bill_length_mm, 1 for flipper_length_mm, and 1 for culmen_length_mm), but there is only 1 Y-variable. So as the data currently stands, we could not create a graph that shows these comparisons! We must pivot.
 
-The pivot_longer() function from the tidyr package in R can be used to pivot a data frame from a wide format to a long format.
+The ```pivot_longer()``` function from the tidyr package in R can be used to pivot a data frame from a wide format to a long format.
 
 ```{r, pivot longer, echo=TRUE}
 
@@ -736,11 +735,9 @@ Pivoting data can be a bit tricky to understand at first, but hopefully this exa
 
 Data can also be converted from long to wide!
 
-The pivot_wider() function from the tidyr package in R can be used to pivot a data frame from long format to wide format.
+The ```pivot_wider()``` function from the tidyr package in R can be used to pivot a data frame from long format to wide format.
 
 Let's work on pivoting the long data frame that we created back to its original wide format!
-
-For the purposes of this example, we'll need to create a new column that reflects what we'll call "ID" for each penguin. We can very easily assign an "ID" by adding a new column that reflects the number of each row.
 
 ```{r, pivot wider, echo=TRUE}
 
@@ -751,13 +748,13 @@ penguins_wide <- penguins_long %>%
 
 ```
 
-
 Here, we converted the data frame from long back to its original wide format! We know it's in wide format because each penguin now only has 1 row.
 
 By including the "measure" column in the "names_from" column, we are telling R that this is the column that will be used to generate column names. By including the "length" column in the "values_from" column, we are telling R that this is the column whose values will be used to generate row values.
 
-
 ## Exercise: Pivoting data from wide to long
+
+Let's try an exercise where we pivot data from wide to long!
 
 **1)** Subset the following columns from the penguin_length data frame and store them in a new data frame called "penguin_pivot_exercise": sample_number, species, bill_length_mm, bill_depth_mm
 
@@ -783,7 +780,7 @@ penguin_pivot_exercise_long <- penguin_pivot_exercise %>% pivot_longer(
                         values_to = "length") #The name for the new values column
 ```
 
-[Click for solution](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2025/R/solutions/sol3.R)
+[Click for solution](https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2025/blob/main/R/solutions/sol3.r)
 
 
 
@@ -793,16 +790,16 @@ Next, we are going to start talking about different types of statistical analyse
 
 We're going to focus on three common statistical analyses: t-tests, ANOVAs, and linear regressions.
 
-We'll continue our focus on comparing the length of different anatomical parts (bill, flipper, and culmen) across penguin species in our analyses below!
+We'll continue our focus on comparing the length of different anatomical parts (bill, flipper, and culmen) across penguin species in our statistical analyses below!
 
-![](images/psychology statistics.jpeg){width=55%}
+![](images/psychology statistics.jpeg){width=50%}
 
 
 ## Cleaning data before analyses
 
 For our analyses, let's use the **penguins_length** data frame that we created earlier which includes the following columns: sample_number, species, island, bill_length_mm, flipper_length_mm, culmen_length_mm.
 
-To make things easier for our analyses, let's remove any rows with missing values in the data.
+To make things easier for our analyses, let's remove any rows with missing values in the data using the ```drop_na()``` function.
 
 ```{r, organize data for t-test}
 
@@ -810,7 +807,7 @@ penguins_length <- penguins_length %>% drop_na()
 
 ```
 
-
+Now our data is ready to be analyzed!
 
 ## T-Tests!
 
@@ -820,15 +817,15 @@ Below, we propose a research question and t-test analysis for our penguins datas
 
 **QUESTION**: Do Adelie and Gentoo penguins differ in flipper length?
 
-**HYPOTHESIS**: "On average, Adelie and Gentoo penguins differ in flipper length."
+**HYPOTHESIS**: On average, Adelie and Gentoo penguins differ in flipper length.
 
-**RELEVANT VARIABLES**: Dependent: flipper_length_mm (numeric) Independent: species (Factor)
+**RELEVANT VARIABLES**: Dependent variable: flipper_length_mm (numeric), Independent variable: species (Factor)
 
 **ANALYSIS**: Unpaired Two-Samples T-Test
 
 Now let's do the t-test!
 
-We'll need to use conditional statements again to specify our variables. What we are comparing here are the mean values of flipper length for Adelie and Gentoo penguins As such, we are going to specify we want flipper length when species == "Adelie" and when species == "Gentoo We next have an argument which asks us whether this analysis is within-subjects or between-subjects. This question is between-subjects, since each penguin is either from the Adelie species or the Gentoo species, so we'll mark that as FALSE. Lastly, R is asking us to define our alternative hypothesis, which is a little beyond the scope of this review, so you will have to take my word that “two.sided” is the right call. 
+We'll need to use conditional statements again to specify our variables. What we are comparing here are the mean values of flipper length for Adelie and Gentoo penguins. As such, we are going to specify we want flipper length when species == "Adelie" and when species == "Gentoo. We next have an argument which asks us whether this analysis is within-subjects or between-subjects. This question is between-subjects, since each penguin is either from the Adelie species or the Gentoo species, so we'll mark that as FALSE. Lastly, R is asking us to define our alternative hypothesis, which is a little beyond the scope of this review, so you will have to take my word that “two.sided” is the right call. 
 
 
 ```{r, t-test}
@@ -844,9 +841,9 @@ model1
 ```
 
 
-We can observe the results of our t-test by printing the model1 data object that we created. However, R has the report() package which makes interpreting results a little easier!
+We can observe the results of our t-test by printing the **model1** data object that we created. However, R has the ```report()``` package which makes interpreting results a little easier!
 
-Let's use the report() function from the report library to help with our interpretation of the t-test results.
+Let's use the ```report()``` function from the report library to help with our interpretation of the t-test results.
 
 ```{r, report t-test}
 
@@ -855,27 +852,26 @@ report(model1)
 ```
 
 
-So it looks like our hypothesis panned out! We see statistically significant differences, judging by the model output (t(261.76) = -34.44, p-value < .001). Since penguins from the Adelie species were our reference group, the negative value of the T-statistic indicates that the first group (Adelie) has a lower mean than the second group (Gentoo). In other words, on average, penguins from the Gentoo species have a longer flipper length than penguins from the Adelie species.
+So it looks like our hypothesis panned out! We see statistically significant differences, judging by the model output (t(251.35) = -33.51, p-value < .001). Since penguins from the Adelie species were our reference group, the negative value of the T-statistic indicates that the first group (Adelie) has a lower mean than the second group (Gentoo). In other words, on average, penguins from the Gentoo species have a longer flipper length than penguins from the Adelie species.
 
-Let's switch to ANOVAs!
+Next we'll talk about running an ANOVA test!
 
 
 ## ANOVAs
 
 An ANOVA, or Analysis of Variance, can be used when both the predictor variable or variables consist of two or more *categorical* options and the outcome or dependent variable is *numeric* in value. Much like a T-Test, ANOVA tells you how significant the differences between these categories or groups are. The advantage over T-tests is that we can compare multiple groups or categories in one analysis. We could revisit our last horrible example and imagine that the evil teacher tells one group right chapter to study from, one group the wrong chapter to study from, and one group to not study at all. An ANOVA test will tell us whether any of these three groups are different from one another (but not necessarily which specific groups are different from one another). 
 
-Using the penguins_merged dataframe, we'll run a similar analysis that we did for the t-test, but this time, we'll include all three penguin species (Adelie, Gentoo, and Chinstrap)
+Using the penguins_merged dataframe, we'll run a similar analysis that we did for the t-test, but this time, rather than only using two penguin species (Adelie and Gentoo), we'll include all three penguin species (Adelie, Gentoo, and Chinstrap).
 
 **QUESTION**: Does bill length differ across penguin species (i.e., Adelie, Gentoo, Chinstrap)?
 
-**HYPOTHESIS**: Differences will exist in bill length by penguin species.
+**HYPOTHESIS**: There are differences in bill length across penguin species.
 
-**RELEVANT VARIABLES**: Dependent: bill_length_mm (numeric) Independent: species (Factor)
+**RELEVANT VARIABLES**: Dependent variable: bill_length_mm (numeric) Independent variable: species (Factor)
 
 **ANALYSIS**: ANOVA
 
 Pay close attention to the formatting of the syntax here. It is the standard way in which we specify most statistical models in R, whether for regression, ANOVA, hierarchical modeling etc.
-
 
 ```{r, ANOVA}
 
@@ -886,20 +882,19 @@ summary(model2)
 
 ```
 
-
-The report function works equally well on ANOVA objects as well.
+The ```report()``` function works equally well on ANOVA models, too.
 ```{r, report ANOVA}
 
 report(model2)
 
 ```
 
-It seems that the main effect of species has a significant effect on the length of bills, judging by the model output (F(2, 339) = -410.60, p-value < .001)
+It seems that the main effect of species has a significant effect on the length of bills, judging by the model output (F(2, 330) = 397.30, p-value < .001)
 
 Next, we'll switch to linear regressions!
 
 
-## Linear regressions (Bivariate and multivariate)
+## Linear regressions (Bivariate and Multivariate)
 
 A bivariate linear regression can be used when both the predictor variable (X) and outcome variable (Y) consist of continuous numeric values. A linear regression tells us how predictive of Y that X is. In other words, if we measured temperature and ice cream sales, we might find, using linear regression that as temperature increases, we could predict with decent accuracy that ice cream sales would increase as well, and we could predict how many ice cream sales we expect to see for any one value of temperature. 
 
@@ -907,9 +902,9 @@ Within the context of the penguins dataset, we could ask a question like whether
 
 **QUESTION**: Does bill length predict flipper length?
 
-**HYPOTHESIS**: As bill length increases, flipper length will also increase.
+**HYPOTHESIS**: As bill length increases, flipper length also increases.
 
-**RELEVANT VARIABLES**: Dependent: Flipper length (numeric) Independent: Bill length (numeric)
+**RELEVANT VARIABLES**: Dependent variable: Flipper length (numeric) Independent variable: Bill length (numeric)
 
 **ANALYSIS**: Bivariate Linear Regression
 
@@ -943,7 +938,7 @@ report(m1)
 
 ```
 
-Linear regression results show that bill length statistically predicts flipper length, as observed by model output stats: (beta = 1.67, 95% CI [1.46, 1.88], t(331) = 15.69, p < .001).
+Linear regression results show that bill length statistically predicts flipper length, as observed by model output stats: (beta = 1.67, 95% CI [0.57, 0.73], t(331) = 15.69, p < .001).
 
 
 ![](images/theoffice.jpeg)
@@ -957,7 +952,7 @@ Using the penguins data, let’s examine if bill length still predicts flipper l
 
 **HYPOTHESIS**: Bill length still predicts flipper length when controlling for sex.
 
-**RELEVANT VARIABLES**: Dependent: flipper length (numeric) Independent: Bill length (numeric) Independent: sex (factor)
+**RELEVANT VARIABLES**: Dependent variable: flipper length (numeric) Independent variables: Bill length (numeric) and sex (factor)
 
 **ANALYSIS**: Multivariate Linear Regression
 
@@ -979,7 +974,7 @@ summary(m2)
 ```
 
 
-Lastly, we can run the report() function for linear models as well!
+Lastly, we can run the ```report()``` function for linear models as well!
 
 ```{r, report multivariate linear regression}
 
@@ -988,7 +983,7 @@ report(m2)
 
 ```
 
-Linear regression results show that bill length still statistically predicts flipper length when controlling for differences in sex, as observed by model output stats: (beta = 1.64, 95% CI [1.42, 1.87], t(330) = 14.46, p < .001).
+Linear regression results show that bill length still statistically predicts flipper length when accounting for differences in sex, as observed by model output stats for the effect of bill length: (beta = 1.64, 95% CI [1.42, 1.87], t(330) = 14.46, p < .001).
 
 Hopefully these analyses have made sense! Our hope is that you can use this analysis code to conduct your own analyses in your own research!
 
@@ -999,16 +994,15 @@ Next we'll start talking about how to make graphs in R!
 
 ggplot2 is an extremely popular plotting package in R that makes it fairly easy to create complex plots from data in a data frame.
 
-ggplot2 refers to the name of the package itself, whereas we use the function ggplot() to generate the plots. We're going to start off with building a very simple plot, and then we will add in some more lines to organize a plot like you would for a manuscript/publication!
+ggplot2 refers to the name of the package itself, whereas we use the ```ggplot()``` function to generate the plots. We're going to start off with building a very simple plot, and then we will add in some more lines to organize a plot like you would for a manuscript/publication!
 
 ## Histograms
 
-We can start off by generating a histogram to visualize our dataset and see the distribution of flipper length by penguin species. 
+We can start off by generating a histogram to visualize our dataset and see the distribution of flipper length and color code it by penguin species. The ```geom_histogram()``` argument is what allows us to make the histogram!
 
 ```{r, histogram}
 
 ggplot(penguins_length, aes(x=flipper_length_mm, fill=species)) + geom_histogram()
-
 
 ```
 
@@ -1020,16 +1014,15 @@ Next, we'll move onto creating bar plots and adding standard error bars to graph
 
 Let's plot the ANOVA we ran earlier, where we examined whether bill length differed across the three penguin species.
 
-In order to create a bar plot with standard error bars, we have to first run the summarySE() function that will allow us to calculate the standard error for our dependent variable (bill length).
+In order to add standard error bars to a plot, we first need to run the ```summarySE()``` function that will calculate the standard error for our dependent variable (bill length).
 
 As a quick reminder, standard error bars reflect the uncertainty or variability in the mean value that's being displayed. In other words, they indicate how precisely we know the true population mean - a smaller standard error suggests we can be more confident in our estimate, while larger error bars indicate more uncertainty. The standard error is calculated by dividing the standard deviation by the square root of the sample size.
 
-The summarySE function is appropriate when working with between-subjects variables. If you have within-subjects variables and want to adjust the error bars so that inter-subject variability is removed as suggested in Loftus and Masson (1994), then the other two functions, normDataWithin and summarySEwithin must also be added to your code; summarySEwithin will then be the function that you call.
+The ```summarySE()``` function is appropriate when working with between-subjects variables. If you have within-subjects variables and want to adjust the error bars so that inter-subject variability is removed as suggested in Loftus and Masson (1994), then the other two functions, normDataWithin() and summarySEwithin() must also be added to your code; summarySEwithin would then be the function that you call.
 
-You don't have to change anything in this code -- just run it as it is! All this code is doing is authorizing the use of the summarySE() function.
+You don't have to change anything in this code -- just run it as it is! All this code is doing is authorizing the use of the ```summarySE()``` function.
 
 ```{r, standard error function}
-
 
 ## Gives count, mean, standard deviation, standard error of the mean, and confidence interval (default 95%).
 ##   data: a data frame.
@@ -1079,9 +1072,9 @@ summarySE <- function(data=NULL, measurevar, groupvars=NULL, na.rm=FALSE,
 
 ## Calculating the standard error
 
-Now that we have the summarySE() function loaded in, we can calculate the standard error of bill length for each penguin species.
+Now that we have the ```summarySE()``` function loaded in, we can calculate the standard error of bill length for each penguin species.
 
-Below, we will use the summarySE() function where the *measurevar* argument reflects our dependent variable (bill_length_mm) and the *groupvars* argument reflects our independent variable (species).
+Below, we will use the ```summarySE()``` function where the **measurevar** argument reflects our dependent variable (bill_length_mm) and the **groupvars** argument reflects our independent variable (species).
 
 ```{r, summarySE() on data}
 # summarySE provides the standard deviation, standard error of the mean, and a (default 95%) confidence interval
@@ -1091,9 +1084,9 @@ penguins_length.se <- summarySE(penguins_length, measurevar="bill_length_mm", gr
 print(penguins_length.se)
 ```
 
-Great! We can see that the **penguins_length.se** data frame reflects the mean, standard deviation, standard error, and confidence intervals for our dependent variable of interest (flipper length) across the three penguin species.
+Great! We can see that the **penguins_length.se** data frame includes the mean, standard deviation, standard error, and confidence intervals for our dependent variable of interest (bill length) across the three penguin species.
 
-Now that we have the standard errors calculated, let's make a bar plot with standard errors to compare flipper length across the three penguin species.
+Now that we have the standard errors calculated, let's make a bar plot with standard errors to compare bill length across the three penguin species.
 
 ```{r, barplot}
 ggplot(penguins_length.se, aes(x = species, y = bill_length_mm, fill = species)) + #Plot the variables using the penguins_length.se data frame
@@ -1103,7 +1096,7 @@ ggplot(penguins_length.se, aes(x = species, y = bill_length_mm, fill = species))
                   position=position_dodge(.9)) 
 ```
 
-As a visual confirmation of our ANOVA results, we can see that there is indeed differences in bill length across the penguin species -- most notably with the bill length of the Gentoo and Chinstrap penguins differing from the bill length of Adelie penguins.
+As a visual confirmation of our ANOVA results, we can see that there are indeed differences in bill length across the penguin species -- most notably with the bill length of the Gentoo and Chinstrap penguins differing from the bill length of Adelie penguins.
 
 
 ## Scatterplot with linear regression line
@@ -1124,11 +1117,11 @@ Hopefully this part has been helpful for learning how to visualize data!
 
 # Tidy pipeline
 
-So far, we've covered quite a lot in separate sections! To end the R workshop, we wanted to put together a complete pipeline that you can use to analyze your own data in the future, starting with reading data into R, cleaning it up, running statistical analyses, and then visualizing the results.
+So far, we've covered quite a lot in separate sections! To end the R workshop, we wanted to put together a complete pipeline that you can use to analyze your own data in the future, starting with loading R packages, reading data into R, cleaning the data up, running a t-test, and then visualizing the results.
 
-Let's say our objective was to examine whether bill length significantly differs from flipper length in penguins.
+Let's say our goal was to examine whether bill length significantly differs from flipper length in penguins.
 
-Here's what a complete pipeline could look like to address this question using the **tidyverse()** library in R!
+Here's what a complete pipeline could look like to address this question using the **tidyverse** library in R!
 
 ```{r, tidy pipeline, eval=FALSE}
 

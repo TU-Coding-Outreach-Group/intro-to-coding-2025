@@ -17,12 +17,12 @@ By the end of this workshop series, our hope is that you will feel comfortable e
          Mac: https://cran.r-project.org/bin/macosx/         
          Linux: https://cran.r-project.org/
          
-2. **Download RStudio** (which allows us to navigate R, but is a different program from R)  
+2. **Download RStudio** (which allows us to work with R, but is a different program from R)  
          Windows: https://download1.rstudio.org/desktop/windows/RStudio-2022.07.1-554.exe  
          Mac: https://download1.rstudio.org/desktop/macos/RStudio-2022.07.1-554.dmg  
          Linux: https://download1.rstudio.org/desktop/jammy/amd64/rstudio-2022.07.1-554-amd64.deb   
 
-3. **Download the "intro-to-coding-2025"" folder from the TU-COG Github page (https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2025)** by pressing the green **Code** button and downloading the ZIP folder. This is the folder containing the all the files we will be working with for the purposes of this workshop.
+3. **Download the "intro-to-coding-2025"" folder from the TU-COG Github page (https://github.com/TU-Coding-Outreach-Group/intro-to-coding-2025)** by pressing the green **Code** button and downloading the ZIP folder. This is the folder containing all the files we will be working with for the purposes of this workshop.
 
 ![](images/CodeButton.png)
 
