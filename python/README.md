@@ -4,7 +4,7 @@
 
 __**Instructor:**__ Helen Schmidt
 
-__**Content Editor:**__ Helen Schmidt
+__**Content Creators:**__ Helen Schmidt & Steven Martinez
 
 ## Description
 This workshop will be an introduction to Python. In this tutorial, you will create a Python Jupyter script using Visual Studio Code (VS Code) software. 
@@ -16,7 +16,8 @@ By the end of this workshop series, our hope is that you will feel comfortable e
 ## To-do before the tutorial
 1. **Download Anaconda Navigator**: https://www.anaconda.com/products/navigator.
 2. **Download Jupyter Notebook via Anaconda**: Once Anaconda Navigator is downloaded, open to the home page. Click "install" under Jupyter Notebook.
-3. **Download Example Data**: Download the `palmer-penguins.csv` dataset.
+3. **Download Example Data**: Download the `palmer-penguins.csv` dataset.  
+4. **Create Virtual Environment in Anaconda**: See [section 3 in workshop notebook](https://tu-coding-outreach-group.github.io/intro-to-coding-2025/python/index.html#3_Create_Virtual_Environment_in_Anaconda)
 
 ## Tutorial objectives:
 - Become familiar with Python, Jupyter, and VS Code
