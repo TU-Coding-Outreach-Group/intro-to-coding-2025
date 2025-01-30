@@ -40,13 +40,6 @@ R is a popular programming language that many researchers use for organizing dat
 By the end of this workshop series, our hope is that you will feel comfortable enough to work independently in R!
 
 
-```{r Intro Video, echo = FALSE}
-library(plyr)
-vembedr::embed_url("https://www.youtube.com/watch?v=HluANRwPyNo")
-```
-[**What people think coding is versus what it actually is**]
-
-
 # Are you ready to start learning R?
 
 ![](Images/Learning_R.jpeg)
@@ -147,7 +140,7 @@ If you need to update a package, you can just re-run the above code. If you’re
 
 ## Loading packages
 
-Now that we have installed a package, that doesn’t mean we can use it yet. We need to tell R “We want access to the functions that this package has during this session" by calling it with the library() command.
+Now that we have installed a package, that doesn’t mean we can use it yet. We need to tell R “We want access to the functions that this package has during this session" by calling it with the ```library()``` command.
 
 ```{r load package via library, eval = F}
 
@@ -1179,3 +1172,10 @@ ggplot(penguins_pipeline_long.se, aes(x = anatomical_region, y = length, fill = 
 Congrats! You made it through an R workshop! Hopefully you feel like you’re starting to pick up on some things! It’s also totally okay if things aren’t clicking just yet, but regardless of how you may be feeling, I will always be happy to work with you if you have any specific questions as you move forward on your coding journey. My email is stevent.martinez@temple.edu or you can always send me a Slack!
 
 ![](images/chatgpt.jpeg)
+
+```{r Intro Video, echo = FALSE}
+library(plyr)
+vembedr::embed_url("https://www.youtube.com/watch?v=HluANRwPyNo")
+```
+[**What people think coding is versus what it actually is**]
+
