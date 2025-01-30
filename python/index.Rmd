@@ -1,5 +1,5 @@
 ---
-title: "Python Tutorial"
+title: "Introduction to Coding: Python"
 author:
   - name: "**Content Creator: Helen Schmidt & Steven Martinez**"
   - name: "**Instructor: Helen Schmidt**"
@@ -38,6 +38,8 @@ This workshop provides an introduction to the Python programming language. Pytho
 By the end of this workshop, we hope that you will feel comfortable working independently in Python!
 
 *Important Note*: Python uses zero-based indexing, which means the first element in all sequences will start at 0. That means the first row of a data frame will be 0, the second row will be 1, and so on. This can be very important if you're specifying variables or indexing based on location!
+
+![](images/drake-meme.png)
 
 # Pre-Workshop: Download Anaconda and VS Code
 
@@ -174,7 +176,7 @@ We'll use the `read_csv` function from `pandas` to load the data into Python. We
 A data frame can be thought of like a spreadsheet in Excel. It contains many cells organized into columns (variables) and rows (observations). Much like the tidy approach to data wrangling, we generally want each row to represent one observation.
 
 ```{python, echo=FALSE}
-df = pd.read_csv("/Users/helenschmidt/Library/CloudStorage/GoogleDrive-helenschmidt129@gmail.com/My Drive/SANLab/Presentations/2025.01-COG-Python/palmer-penguins.csv")
+df = pd.read_csv("palmer-penguins.csv")
 ```
 
 ```{python, eval=FALSE}
@@ -363,3 +365,100 @@ Now let's check our new data frame using `info()` and we should see that all non
 ```{python}
 df_no_na.info()
 ```
+
+# If / Else Statements
+
+An if-else statement is a powerful and flexible tool that allows a programming script to make decisions and execute different paths based on specific conditions.
+
+You can think of an if-else statement like a fork in the road: if a certain condition is true, the program follows one path, and if the condition is false, it follows an alternative path. 
+
+```{python}
+# set x
+x = 10
+# if / else
+if x > 5:
+    print("x is less than 20")
+else:
+    print("x is greater than 20")
+```
+
+```{python}
+# if / else with multiple conditions
+if x < 5:
+    print("x is less than 5")
+elif x < 20:
+    print("x is somewhere between 5 and 20")
+else: 
+    print("x is greater than 20")
+```
+
+Let's use an example that's a bit more relevant to our data. We will categorize `bill_flipper_mm` into big and small groups depending on whether it's above or below the median length. 
+
+```{python}
+# get median value
+median_value = df_no_na['bill_flipper_mm'].median()
+# show
+median_value
+```
+
+We can then combine our median with an if-else statement to create a new variable and populate each row with big or small. To tell Python to perform this if-else statement row-by-row, we need to include `lambda row:` within an `apply()` statement.
+
+```{python}
+# group penguin as "small" if bill_flipper_mm is below the median and "big" if above the median
+df_no_na['bill_flipper_group'] = df_no_na.apply(lambda row: 'small' if
+                                                row['bill_flipper_mm'] <= median_value
+                                                else 'big', axis = 1)
+df_no_na.head()
+```
+
+# For Loops
+
+Instead of telling Python to execute code row-by-row, we can leverage for loops to iterate through a process for a given number of times. Let's use a for loop to tell Python to print all our penguin `bill_flipper_mm` values and the corresponding `bill_flipper_group` to visually match the first five rows. 
+
+We'll use a function called `iterrows()` to do this row-by-row and print these variables. We'll use some cool Python syntax to print varying text alongside fixed text. 
+
+```{python}
+for index, row in df_no_na[0:5].iterrows():
+    print(f"Index: {index}, Length: {row['bill_flipper_mm']}, Group: {row['bill_flipper_group']}")
+```
+
+# Wide vs. Long Data Formats
+
+There are two common types of data frame structures you'll encounter: wide data and long data. **Wide** data contains one row per individual, with many variables across columns. This wide format is typically what you find with Excel spreadsheets. Conversely, **long** data densely packs observations across multiple rows. For a lot of statistical analyses and data visualizations, long format is typically useful, while wide format is useful for descriptive statistics. 
+
+Our penguin data is currently in **wide** format, with each row representing one penguin. But let's say we want to show how bill length, bill depth, and flipper length differ across penguin species (foreshadowing the statistical analysis section and data visualization section). 
+
+We currently have multiple variables for bill length, bill depth, and flipper length, so we can move from wide to long format by combining the values from these three variables and creating a new variable that tells Python what each value represents. That will allow us to make comparisons later down the line.
+
+We can do this using the `melt()` function from pandas. We need to specify the grouping variable (`species`), the variables we want to pivot longer (`bill_length_mm`, `bill_depth_mm`, and `flipper_length_mm`), the new variable name for the measurement types (`measurement`) and the new variable name to store the measurement values into (`values`).
+
+```{python}
+df_long = df_no_na.melt(id_vars = 'species', value_vars = ['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm'], var_name = 'measurement', value_name = 'values')
+
+df_long.head()
+```
+
+# Statistical Analysis
+
+```{python}
+
+```
+
+
+# Data Visualization
+```{r}
+ggplot(penguins_length, aes(x=flipper_length_mm, fill=species)) + geom_histogram()
+```
+
+```{python}
+plt.hist(df_long[['species','values']])
+plt.show()
+```
+
+# Full Analysis Pipeline
+
+```{python}
+
+```
+
+# Conclusion
