@@ -39,8 +39,6 @@ By the end of this workshop, we hope that you will feel comfortable working inde
 
 ***Important Note***: Python uses **zero-based indexing**, which means the first element in all sequences will start at 0. That means the first row of a data frame will be 0, the second row will be 1, and so on. This can be very important if you're specifying variables or indexing based on location!
 
-![](images/drake-meme.png)
-
 # Pre-Workshop: Download Anaconda and VS Code
 
 Before the workshop, you need to download the [Anaconda Navigator](https://www.anaconda.com/products/navigator) and [Visual Studio Code](https://code.visualstudio.com/). You can think of Visual Studio Code (otherwise known as VS Code) as the RStudio equivalent for Python (and many other languages!). Where things start to differ for Python is the need for the Anaconda Navigator. 
