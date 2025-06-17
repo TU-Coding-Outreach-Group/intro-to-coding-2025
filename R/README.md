@@ -4,6 +4,8 @@
 
 __**Content Creators:**__ Steven Martinez & Helen Schmidt
 
+### [Full Workshop Recording](https://youtu.be/q_l_O7L9OeY)
+
 ## Description
 This workshop will provide an introduction to the programming language commonly referred to as R! 
 
